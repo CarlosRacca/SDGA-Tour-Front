@@ -1,0 +1,29 @@
+{
+  "name": "sdga-tour-front",
+  "version": "1.0.0",
+  "description": "Front-End realizado con React-Redux para la creacion de una SPA para un torneo de golf de amigos.",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosRacca/SDGA-Tour-Front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosRacca/SDGA-Tour-Front/issues"
+  },
+  "homepage": "https://github.com/CarlosRacca/SDGA-Tour-Front#readme",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-redux": "^8.0.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1"
+  }
+}
