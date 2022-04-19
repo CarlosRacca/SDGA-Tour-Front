@@ -19,13 +19,29 @@ export default function Login(){
                     Email:
                     <input 
                     type='text'
+                    name='email'
+                    className='mail'
+                    {...register('email', {
+                        required: {value: true, message: 'Completar Email'}
+                    })}
                     />
+                    <span className='text-danger text-small d-block mb-2'>
+                        {errors?.email?.message}
+                    </span>
                 </label>
                 <label>
                     Contraseña:
                     <input 
                     type='password'
+                    name='password'
+                    className= 'contraseña'
+                    {...register('password', {
+                        required: {value: true, message: 'Completar Contraseña'}
+                    })}
                     />
+                    <span className='text-danger text-small d-block mb-2'>
+                        {errors?.password?.message}
+                    </span>
                 </label>
                 <button>Ingresar</button>
             </form>
