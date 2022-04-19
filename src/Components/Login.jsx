@@ -1,22 +1,34 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 export default function Login(){
+
+    const { register, errors, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const onSubmit = (data, e) => {
+        console.log(data);
+        e.target.reset();
+        navigate('/home');
+    };
+
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <label>
                     Email:
-                    <input type='text'></input>
+                    <input 
+                    type='text'
+                    />
                 </label>
                 <label>
                     Contraseña:
-                    <input type='text'></input>
+                    <input 
+                    type='password'
+                    />
                 </label>
-                <Link to='/home'>
-                    <button>Ingresar</button>
-                </Link>
+                <button>Ingresar</button>
             </form>
         </div>
-    )
-}
+    );
+};

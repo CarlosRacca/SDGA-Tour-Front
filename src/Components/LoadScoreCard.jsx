@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-export default function CargarTarjeta(){
+export default function LoadScoreCard(){
+
     return(
         <div>
             <form>
@@ -27,5 +28,5 @@ export default function CargarTarjeta(){
                 </Link>
             </form>
         </div>
-    )
-}
+    );
+};
