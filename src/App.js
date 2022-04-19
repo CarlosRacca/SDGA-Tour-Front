@@ -1,15 +1,21 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Login from './Components/Login'
+import LandingPage from './Components/LandignPage';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import Home from './Components/Home';
+import CargarTarjeta from './Components/CargarTarjeta';
 
 function App() {
     return (
       <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route exact path='/' element={<Login/>}></Route>
-            {/* <Route path='/videogames' element={<Home/>}></Route>
-            <Route path='/videogame' element={<VideogameCreate/>}></Route>
-            <Route path='/videogames/:id' element={<Detail/>}></Route> */}
+            <Route exact path='/' element={<LandingPage/>}></Route>
+            <Route path='/registro' element={<Register/>}></Route>
+            <Route path='/ingreso' element={<Login/>}></Route>
+            <Route path='/home' element={<Home/>}></Route>
+            <Route path='/cargarTarjeta' element={<CargarTarjeta/>}></Route>
+
           </Routes>
         </div>
       </BrowserRouter>
