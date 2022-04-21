@@ -35,7 +35,7 @@ export function postScore(payload){
 
     return async function(dispatch){
 
-        const response = await axios.post('http://localhost:3001/score', payload)
+        const response = await axios.post('https://sdga-tour.herokuapp.com/score', payload)
 
         return response
     }
