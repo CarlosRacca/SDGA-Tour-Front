@@ -1,31 +1,133 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { postScore } from "../Actions";
 
 export default function LoadScoreCard(){
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [errors, setErrors] = useState({})
+    const [input, setInput] = useState({
+        front_nine: '',
+        back_nine: '',
+        handicap: '',
+        date: '',
+        matricula: ''
+    })
+
+    function validate(input){
+        let errors = {};
+        if(input.front_nine < 25){
+            errors.front_nine = 'Debes ingresar el score gross de los primeros 9 hoyos'
+        }
+        else if(input.back_nine < 25){
+            errors.back_nine = 'Debes ingresar el score gross de los segundos 9 hoyos'
+        }
+        else if(!input.handicap){
+            errors.handicap = 'Debes ingresar el handicap que tuviste el dia en que se jugo esta tarjeta y correspondiente al tee de donde jugaste'
+        }
+        else if(input.matricula.length < 4){
+            errors.matricula = 'Debes ingresar tu numero de matrícula'
+        }
+        
+        return errors
+    }
+
+    function onSubmit(e){
+        if(input.front_nine < 25){
+            alert('Debes ingresar el score gross de los primeros 9 hoyos')
+        }
+        else if(input.back_nine < 25){
+            alert('Debes ingresar el score gross de los segundos 9 hoyos')
+        }
+        else if(!input.handicap){
+            alert('Debes ingresar el handicap que tuviste el dia en que se jugo esta tarjeta y correspondiente al tee de donde jugaste')
+        }
+        else if(input.matricula.length < 4){
+            alert('Debes ingresar tu numero de matrícula')
+        }
+        
+        else{
+            e.preventDefault();
+            dispatch(postScore(input))
+            alert('La tarjeta ha sido cargada con exito!')
+            setInput({
+                front_nine: '',
+                back_nine: '',
+                handicap: '',
+                date: '',
+                matricula: ''
+            })
+            navigate('/home')
+        }
+    }
+
+    function handleChange(e){
+        setInput({
+            ...input,
+            [e.target.name] : e.target.value
+        })
+        setErrors(validate({
+            ...input,
+            [e.target.name] : e.target.value
+        }))
+    }
 
     return(
         <div>
-            <form>
-                <label>
+            <form onSubmit={e => onSubmit(e)}>
+                <div>
                     Ida:
-                    <input type='text'></input>
-                </label>
-                <label>
+                    <input 
+                    type='number'
+                    name='front_nine'
+                    placeholder='ej: 40'
+                    value={input.front_nine}
+                    onChange={e => handleChange(e)}
+                    className='front_nine'
+                    />
+                </div>
+                <div>
                     Vuelta:
-                    <input type='text'></input>
-                </label>
-                <label>
+                    <input 
+                    type='number'
+                    name='back_nine'
+                    placeholder='ej: 40'
+                    value={input.back_nine}
+                    onChange={e => handleChange(e)}
+                    className='back_nine'/>
+                </div>
+                <div>
+                    Fecha:
+                    <input
+                    type='text'
+                    name='date'
+                    placeholder='ej: 13-03-2022'
+                    value={input.date}
+                    onChange={e => handleChange(e)}
+                    className='date'/>
+                </div>
+                <div>
                     Handicap:
-                    <input type='text'></input>
-                </label>
-                <label>
+                    <input
+                    type='number'
+                    name='handicap'
+                    placeholder='ej: 12'
+                    value={input.handicap}
+                    onChange={e => handleChange(e)}
+                    className='handicap'/>
+                </div>
+                <div>
                     Matrícula:
-                    <input type='text'></input>
-                </label>
-                
-                <Link to='/home'>
-                    <button>Presentar</button>
-                </Link>
+                    <input
+                    type='number'
+                    name='matricula'
+                    placeholder='ej: 117547'
+                    value={input.matricula}
+                    onChange={e => handleChange(e)}
+                    className='matricula'/>
+                </div>
+                <button>Presentar</button>
             </form>
         </div>
     );
