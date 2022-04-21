@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 export default function Home(){
 
     return(
-        <main>
-            <h1>Leaderboard</h1>
-            <h5>PLANILLA DE SCORES NETO: ABRIL 2022</h5>
-                <table>
+        <main className='mainH'>
+            <h1 className='h1H'>SDGA TOUR</h1>
+            <button className='button'>Cargar tarjeta</button>
+            <h5 className='h5H'>PLANILLA DE SCORES NETO: ABRIL 2022</h5>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>Jugador</th>
@@ -31,10 +32,10 @@ export default function Home(){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr className='trA'>
                             <th>A</th>
                         </tr>
-                        <tr>
+                        <tr className='trChamp'>
                             <td>GALLEGO</td>
                             <td></td>
                             <td></td>
@@ -53,7 +54,7 @@ export default function Home(){
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
+                        <tr className='trScnd'>
                             <td>LECHUZA</td>
                             <td></td>
                             <td></td>
@@ -73,7 +74,7 @@ export default function Home(){
                             <td></td>
                         </tr>
                         <tr>
-                            <td>NINJA</td>
+                            <td className='trThird'>NINJA</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -148,7 +149,7 @@ export default function Home(){
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
+                        <tr className='trAdsc'>
                             <td>RUSO</td>
                             <td></td>
                             <td></td>
@@ -167,7 +168,7 @@ export default function Home(){
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
+                        <tr className='trB'>
                             <th>B</th>
                         </tr>
                         <tr>
