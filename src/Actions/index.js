@@ -26,7 +26,7 @@ export function getUsers(){
 
         return dispatch({
             type: 'GET_USERS',
-            payload: users
+            payload: users.data
         })
     }
 }

@@ -1,7 +1,8 @@
 
 const initialState = {
     scores: [],
-    users: []
+    users: [],
+    algo: 'as'
 };
 
 function rootReducer(state = initialState, action){

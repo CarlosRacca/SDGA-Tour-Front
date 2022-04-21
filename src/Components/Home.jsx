@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {useDispatch, useSelector} from 'react-redux';
 import '../Styles/Home.modules.css'
 import { Link } from 'react-router-dom';
+import { getScores, getUsers } from "../Actions/index";
+
 
 export default function Home(){
+
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [dispatch])
+
+    const users = useSelector(state => state.users);
+    const alguito = useSelector(state => state);
+    console.log(users)
+
 
     return(
         <main className='mainH'>
             <h1 className='h1H'>SDGA TOUR</h1>
-            <button className='button'>Cargar tarjeta</button>
+            <Link to='/loadscorecard'>
+                <button className='button'>Cargar tarjeta</button>
+            </Link>
             <h5 className='h5H'>PLANILLA DE SCORES NETO: ABRIL 2022</h5>
                 <table className='table'>
                     <thead>
@@ -32,6 +48,19 @@ export default function Home(){
                         </tr>
                     </thead>
                     <tbody>
+                        {
+                            users ? users.map(el => {
+                                return(
+                                    <tr key={el.id}>
+                                        <td>{el.name}</td>
+                                        <td>{el.name}</td>
+                                    </tr>
+                                )
+                            }) :
+                            <tr>
+                                <td>Cargando...</td>
+                            </tr>
+                        }
                         <tr className='trA'>
                             <th>A</th>
                         </tr>
