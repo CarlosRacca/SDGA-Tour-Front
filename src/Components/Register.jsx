@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { postUser } from '../Actions/index'
+import '../Styles/Register.modules.css'
 
 export default function Register(){
 
@@ -81,59 +82,64 @@ export default function Register(){
     }
 
     return(
-        <div>
-            <form onSubmit={e => onSubmit(e)}>
-                <div>
-                    Nombre:
+        <div className='divR'>
+            <h1 className='h1R'>SDGA TOUR</h1>
+            <form className='formR' onSubmit={e => onSubmit(e)}>
+                <div className='divFormR'>
+                    
                     <input 
                     type='text'
                     name='name'
                     value={input.name}
                     onChange={e => handleChange(e)}
                     className='nombre'
+                    placeholder='Nombre'
                     />
                 </div>
-                <div>
-                    Apellido:
+                <div className='divFormR'>
+                    
                     <input 
                     type='text'
                     name='lastname'
                     value={input.lastname}
                     onChange={e => handleChange(e)}
                     className='apellido'
+                    placeholder='Apellido'
                     />
                 </div>
-                <div>
-                    Email:
+                <div className='divFormR'>
+                    
                     <input 
                     type='text'
                     name='email'
                     value={input.email}
                     onChange={e => handleChange(e)}
                     className='mail'
+                    placeholder='Mail'
                     />
                 </div>
-                <div>
-                    Contraseña:
+                <div className='divFormR'>
+                    
                     <input 
                     type='password'
                     name='password'
                     value={input.password}
                     onChange={e => handleChange(e)}
                     className='contraseña'
+                    placeholder='Contraseña'
                     />
                 </div>
-                <div>
-                    Matrícula:
+                <div className='divFormR'>
                     <input 
                     type='number'
                     name='matricula'
                     value={input.matricula}
                     onChange={e => handleChange(e)}
                     className='matricula'
+                    placeholder='Matrícula'
                     />
                 </div>
-                <button>Registrarse</button>
+                <button className='buttonR'>Registrarse</button>
             </form>
         </div>
     );
