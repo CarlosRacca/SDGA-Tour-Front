@@ -2,21 +2,72 @@ import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import '../Styles/Home.modules.css'
 import { Link } from 'react-router-dom';
-import { getScores, getUsers } from "../Actions/index";
+import { getScores, getUsers, getScoresUser, getDates } from "../Actions/index";
 
 
 export default function Home(){
 
     const dispatch = useDispatch();
+
+    let date = new Date();
+    let month = String(date.getMonth() + 1).padStart(2, '0')
+    let year =  date.getFullYear();
+
+    var sum = []
     
     useEffect(() => {
         dispatch(getUsers())
+        dispatch(getScores())
+        dispatch(getScoresUser())
+        dispatch(getDates(month, year))
     }, [dispatch])
 
     const users = useSelector(state => state.users);
-    const alguito = useSelector(state => state);
-    console.log(users)
+    const dates = useSelector(state => state.dates);
+    const scoresUser = useSelector(state => state.scoresUser);
 
+    function numberToMonth(month){
+        if(month === '01'){
+            return "ENERO"
+        }
+        else if(month ==='02'){
+            return 'FEBRERO'
+        }
+        else if(month === '03'){
+            return 'MARZO'
+        }
+        else if(month === '04'){
+            return 'ABRIL'
+        }
+        else if(month === '05'){
+            return 'MAYO'
+        }
+        else if(month === '06'){
+            return 'JUNIO'
+        }
+        else if(month === '07'){
+            return 'JULIO'
+        }
+        else if(month === '08'){
+            return 'AGOSTO'
+        }
+        else if(month === '09'){
+            return 'SEPTIEMBRE'
+        }
+        else if(month === '10'){
+            return 'OCTUBRE'
+        }
+        else if(month === '11'){
+            return 'NOVIEMBRE'
+        }
+        else{
+            return 'DICIEMBRE'
+        }
+    }
+
+    function bestScore(){
+
+    }
 
     return(
         <main className='mainH'>
@@ -24,23 +75,21 @@ export default function Home(){
             <Link to='/loadscorecard'>
                 <button className='button'>Cargar tarjeta</button>
             </Link>
-            <h5 className='h5H'>PLANILLA DE SCORES NETO: ABRIL 2022</h5>
+            <h5 className='h5H'>PLANILLA DE SCORES NETO: {numberToMonth(month)} {year}</h5>
                 <table className='table'>
                     <thead>
                         <tr>
                             <th>Jugador</th>
-                            <th>HDC</th>
-                            <th>2/4</th>
-                            <th>3/4</th>
-                            <th>9/4</th>
-                            <th>10/4</th>
-                            <th>14/4</th>
-                            <th>15/4</th>
-                            <th>16/4</th>
-                            <th>17/4</th>
-                            <th>23/4</th>
-                            <th>24/4</th>
-                            <th>30/4</th>
+                            {
+                            dates ? dates.map(el => {
+                                return(
+                                    <th>
+                                        {`${el.day}/${el.month}`}
+                                    </th>
+                                )
+                            }) :
+                            <div>Cargando</div>
+                        }
                             <th>M1</th>
                             <th>M2</th>
                             <th>P</th>
@@ -48,339 +97,119 @@ export default function Home(){
                         </tr>
                     </thead>
                     <tbody>
+                        
+                        <tr className='trA'>
+                            <th>A</th>
+                        </tr>
                         {
-                            users ? users.map(el => {
+                            scoresUser ? scoresUser.map(el => {
                                 return(
-                                    <tr key={el.id}>
-                                        <td>{el.name}</td>
-                                        <td>{el.name}</td>
-                                    </tr>
-                                )
-                            }) :
+                                <tr>
+                                    <td>{el.user}</td>
+                                    {
+                                    dates ? dates.map(date => {
+                                        return(
+                                            <td>{
+                                                el.scores ? el.scores.filter(elem => 
+                                                elem.month === month
+                                            ).sort((a ,b) => a.day - b.day).map(elem => {
+                                                if(elem.day == date.day){
+                                                    return(
+                                                        elem.totalNeto
+                                                    )
+                                                }
+                                            }) :
+                                            <td>Cargando...</td>}</td>
+                                            )
+                                        }) : 
+                                        <td></td>   
+                                    }
+                                    
+                                    {
+                                        el.scores ? el.scores.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                            return(
+                                                <td>{elem.totalNeto}</td>
+                                            )
+                                        })
+                                        : 
+                                        <td></td>
+                                    }
+                                    {
+                                        el.scores ? el.scores.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                            if(el.scores.length > 1){
+                                                return(
+                                                    <td>{elem.totalNeto}</td>
+                                                )
+                                            }
+                                            else{
+                                                return(
+                                                    <td></td>
+                                                )
+                                            }
+                                        }) :
+                                        <td></td>
+                                        
+                                    }
+                                    {
+                                        el.scores ? el.scores.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                            if(el.scores.length > 2){
+                                                return(
+                                                    <td>{elem.totalNeto}</td>
+                                                )
+                                            }
+                                            else{
+                                                return(
+                                                    <td></td>
+                                                )
+                                            }
+                                        })
+                                        : 
+                                        <td></td>
+                                    }
+                                    {
+                                        el.scores ? el.scores.sort((a,b) => a.totalNeto - b.totalNeto).map(elem => {
+                                            
+                                            if(el.scores.length > 2){
+                                                if(el.scores.indexOf(elem) === 0){
+                                                    sum.push(elem.totalNeto)
+
+                                                    return 
+                                                }
+                                                else if(el.scores.indexOf(elem) === 1){
+                                                    sum.push(elem.totalNeto)
+
+                                                    return 
+                                                }
+                                                else if(el.scores.indexOf(elem) === el.scores.length -1){
+                                                    sum.push(elem.totalNeto)
+
+                                                    return(
+                                                        <td>{sum[0] + sum [1] + sum[2]}</td>
+                                                        
+                                                    )
+                                                }
+                                            }
+                                            else{
+                                                return(
+                                                    <td></td>
+                                                )
+                                            }
+                                        })
+                                        : 
+                                        <td></td>
+                                    }
+                                    
+                                    
+                                </tr>)
+                            }) : 
                             <tr>
                                 <td>Cargando...</td>
                             </tr>
                         }
-                        <tr className='trA'>
-                            <th>A</th>
-                        </tr>
-                        <tr className='trChamp'>
-                            <td>GALLEGO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr className='trScnd'>
-                            <td>LECHUZA</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td className='trThird'>NINJA</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>SUECO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>NONO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>DENGUE</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr className='trAdsc'>
-                            <td>RUSO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr className='trB'>
-                            <th>B</th>
-                        </tr>
-                        <tr>
-                            <td>LG</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>PAPA</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>PAQUETE</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>MUGRE</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>BARCO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>LECHE</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>PERRO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>CEPO</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>EL 22</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                       
                     </tbody>
                     <tfoot></tfoot>
                 </table>
         </main>
-        //         <div>
-        //     <div>
-        //         <Link to='/loadscorecard'>
-        //             <button>Cargar Tarjeta</button>
-        //         </Link>
-        //     </div>
-        // </div>
     );
 };
