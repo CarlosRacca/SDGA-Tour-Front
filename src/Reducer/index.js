@@ -2,14 +2,12 @@
 const initialState = {
     scores: [],
     users: [],
-    algo: 'as'
+    scoresUser: [],
+    dates: []
 };
 
 function rootReducer(state = initialState, action){
     switch(action.type){
-        default:
-            return state;
-
         case 'GET_USERS':
             return {
                 ...state,
@@ -22,6 +20,23 @@ function rootReducer(state = initialState, action){
                 scores: action.payload
             };
 
+        case 'GET_SCORES_USER':
+            return {
+                ...state,
+                scoresUser: action.payload
+            };
+        
+        case 'GET_DATES':
+            return {
+                ...state,
+                dates: action.payload
+            }
+
+        case 'POST_DATE':
+            return {
+                ...state
+            }
+
         case 'POST_USER':
             return {
                 ...state,
@@ -31,6 +46,10 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
             };
+            
+        default:
+            return state;
+    
     };
     
 };

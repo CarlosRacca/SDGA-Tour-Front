@@ -16,6 +16,36 @@ export function getScores(){
     }
 }
 
+export function getScoresUser(){
+
+    return async function(dispatch){
+        
+        let allScores = await axios.get('https://sdga-tour.herokuapp.com/scoresUser')
+
+        let scores = allScores.data.map(el => el)
+
+        return dispatch({
+            type: 'GET_SCORES_USER',
+            payload: scores
+        })
+    }
+}
+
+export function getDates(month, year){
+
+    return async function(dispatch){
+
+        let allDates =  await axios.get(`https://sdga-tour.herokuapp.com/dates/${month}/${year}`)
+
+        let dates = allDates.data
+        
+        return dispatch({
+            type: 'GET_DATES',
+            payload: dates
+        })
+    }
+}
+
 export function getUsers(){
 
     return async function(dispatch){
@@ -26,8 +56,18 @@ export function getUsers(){
 
         return dispatch({
             type: 'GET_USERS',
-            payload: users.data
+            payload: users
         })
+    }
+}
+
+export function postDate(payload){
+
+    return async function(dispatch){
+
+        const response = await axios.post('https://sdga-tour.herokuapp.com/date', payload)
+
+        return response
     }
 }
 
