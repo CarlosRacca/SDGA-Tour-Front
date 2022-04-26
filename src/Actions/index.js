@@ -10,7 +10,7 @@ export function getScores(){
         let scores = allScores.data.map(el => el)
 
         return dispatch({
-            type: 'GET_SCORES',
+            type: 'GET_SCORES', 
             payload: scores
         })
     }

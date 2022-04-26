@@ -7,6 +7,7 @@ export default function LandingPage(){
         <div>
             <div>
                 <h1>Bienvenidos al SDGA Tour!</h1>
+                <img src='LOGO SDGA.jpeg'/>
                 <Link to='/register'>
                     <button>Registrarse</button>
                 </Link>
