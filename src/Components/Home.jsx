@@ -194,35 +194,11 @@ export default function Home(){
                                         <td></td>
                                     }
                                     {
-                                        el.scores ? el.scores.sort((a,b) => a.totalNeto - b.totalNeto).map(elem => {
-                                            
-                                            if(el.scores.length > 2){
-                                                if(el.scores.indexOf(elem) === 0){
-                                                    sum.push(elem.totalNeto)
-
-                                                    return 
-                                                }
-                                                else if(el.scores.indexOf(elem) === 1){
-                                                    sum.push(elem.totalNeto)
-
-                                                    return 
-                                                }
-                                                else if(el.scores.indexOf(elem) === el.scores.length -1){
-                                                    sum.push(elem.totalNeto)
-
-                                                    return(
-                                                        <td>{sum[0] + sum [1] + sum[2]}</td>
-                                                        
-                                                    )
-                                                }
-                                            }
-                                            else{
-                                                return(
-                                                    <td></td>
-                                                )
-                                            }
-                                        })
-                                        : 
+                                        el.total ? el.total.map(total => {
+                                            return(
+                                                <td>{total}</td>
+                                            )
+                                        }) :
                                         <td></td>
                                     } 
                                 </tr>)
@@ -330,37 +306,13 @@ export default function Home(){
                                         <td></td>
                                     }
                                     {
-                                        el.scores ? el.scores.sort((a,b) => a.totalNeto - b.totalNeto).map(elem => {
-                                            
-                                            if(el.scores.length > 2){
-                                                if(el.scores.indexOf(elem) === 0){
-                                                    sum.push(elem.totalNeto)
-
-                                                    return 
-                                                }
-                                                else if(el.scores.indexOf(elem) === 1){
-                                                    sum.push(elem.totalNeto)
-
-                                                    return 
-                                                }
-                                                else if(el.scores.indexOf(elem) === el.scores.length -1){
-                                                    sum.push(elem.totalNeto)
-
-                                                    return(
-                                                        <td>{sum[0] + sum [1] + sum[2]}</td>
-                                                        
-                                                    )
-                                                }
-                                            }
-                                            else{
-                                                return(
-                                                    <td></td>
-                                                )
-                                            }
-                                        })
-                                        : 
+                                        el.total ? el.total.map(total => {
+                                            return(
+                                                <td>{total}</td>
+                                            )
+                                        }) :
                                         <td></td>
-                                    } 
+                                    }
                                 </tr>)
                                 }
                             }) : 
