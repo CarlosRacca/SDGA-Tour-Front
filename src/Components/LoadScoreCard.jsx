@@ -12,7 +12,8 @@ export default function LoadScoreCard(){
         back_nine: '',
         handicap: '',
         date: '',
-        matricula: ''
+        matricula: '',
+        categoria: ''
     })
 
     function validate(input){
@@ -28,6 +29,9 @@ export default function LoadScoreCard(){
         }
         else if(input.matricula.length < 4){
             errors.matricula = 'Debes ingresar tu numero de matrícula'
+        }
+        else if(input.categoria.length < 1){
+            errors.matricula = 'Debes ingresar la categoría en la que estas actualmente'
         }
         
         return errors
@@ -46,6 +50,9 @@ export default function LoadScoreCard(){
         else if(input.matricula.length < 4){
             alert('Debes ingresar tu numero de matrícula')
         }
+        else if(input.categoria.length < 1){
+            alert('Debes ingresar la categoría en la que estas actualmente')
+        }
         
         else{
             e.preventDefault();
@@ -56,7 +63,8 @@ export default function LoadScoreCard(){
                 back_nine: '',
                 handicap: '',
                 date: '',
-                matricula: ''
+                matricula: '',
+                categoria: ''
             })
             navigate('/home')
         }
@@ -126,6 +134,20 @@ export default function LoadScoreCard(){
                     value={input.matricula}
                     onChange={e => handleChange(e)}
                     className='matricula'/>
+                </div>
+                <div>
+                    Categoría:
+                    <select
+                    type='select'
+                    name='categoria'
+                    placeholder='ej: 117547'
+                    value={input.categoria}
+                    onChange={e => handleChange(e)}
+                    className='categoria'>
+                        <option value="Empty"></option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
                 </div>
                 <button>Presentar</button>
             </form>
