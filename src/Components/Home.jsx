@@ -12,8 +12,6 @@ export default function Home(){
     let date = new Date();
     let month = String(date.getMonth() + 1).padStart(2, '0')
     let year =  date.getFullYear();
-
-    var sum = []
     
     useEffect(() => {
         dispatch(getUsers())
@@ -103,6 +101,7 @@ export default function Home(){
                         </tr>
                         {
                             scoresUser ? scoresUser.map(el => {
+                                var sum = []
                                 return(
                                 <tr>
                                     <td>{el.user}</td>
