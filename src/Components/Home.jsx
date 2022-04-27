@@ -87,10 +87,6 @@ export default function Home(){
         }
     }
 
-    function bestScore(){
-
-    }
-
     return(
         <main className='mainH'>
             <h1 className='h1H'>SDGA TOUR</h1>
@@ -104,11 +100,20 @@ export default function Home(){
                             <th>Jugador</th>
                             {
                             dates ? dates.map(el => {
-                                return(
-                                    <th>
-                                        {`${el.day}/${el.month}`}
-                                    </th>
-                                )
+                                if(el.exceptional === false){
+                                    return(
+                                        <th className='normalDate'>
+                                            {`${el.day}/${el.month}`}
+                                        </th>
+                                    )
+                                }
+                                else{
+                                    return(
+                                        <th className='exceptionalDate'>
+                                            {`${el.day}/${el.month}`}
+                                        </th>
+                                    )
+                                }
                             }) :
                             <div>Cargando</div>
                         }
@@ -128,26 +133,43 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
-                                var sum = []
+
                                 if(el.scores[0].categoria === "A"){
                                 return(
                                 <tr>
                                     <td>{el.user}</td>
                                     {
                                     dates ? dates.map(date => {
-                                        return(
-                                            <td>{
-                                                el.scores ? el.scores.filter(elem => 
-                                                elem.month === month
-                                            ).sort((a ,b) => a.day - b.day).map(elem => {
-                                                if(elem.day == date.day){
-                                                    return(
-                                                        elem.totalNeto
-                                                    )
-                                                }
-                                            }) :
-                                            <td>Cargando...</td>}</td>
-                                            )
+                                        if(date.exceptional === false){
+                                            return(
+                                                <td className='normalDate'>{
+                                                    el.scores ? el.scores.filter(elem => 
+                                                    elem.month === month
+                                                ).sort((a ,b) => a.day - b.day).map(elem => {
+                                                    if(elem.day == date.day){
+                                                        return(
+                                                            elem.totalNeto
+                                                        )
+                                                    }
+                                                }) :
+                                                <td>Cargando...</td>}</td>
+                                                )
+                                        }
+                                        else{
+                                            return(
+                                                <td className='exceptionalDate'>{
+                                                    el.scores ? el.scores.filter(elem => 
+                                                    elem.month === month
+                                                ).sort((a ,b) => a.day - b.day).map(elem => {
+                                                    if(elem.day == date.day){
+                                                        return(
+                                                            elem.totalNeto
+                                                        )
+                                                    }
+                                                }) :
+                                                <td>Cargando...</td>}</td>
+                                                )
+                                        }
                                         }) : 
                                         <td></td>   
                                     }
@@ -218,11 +240,20 @@ export default function Home(){
                             <th>Jugador</th>
                             {
                             dates ? dates.map(el => {
-                                return(
-                                    <th>
-                                        {`${el.day}/${el.month}`}
-                                    </th>
-                                )
+                                if(el.exceptional === false){
+                                    return(
+                                        <th className='normalDate'>
+                                            {`${el.day}/${el.month}`}
+                                        </th>
+                                    )
+                                }
+                                else{
+                                    return(
+                                        <th className='exceptionalDate'>
+                                            {`${el.day}/${el.month}`}
+                                        </th>
+                                    )
+                                }
                             }) :
                             <div>Cargando</div>
                         }
@@ -247,19 +278,36 @@ export default function Home(){
                                     <td>{el.user}</td>
                                     {
                                     dates ? dates.map(date => {
-                                        return(
-                                            <td>{
-                                                el.scores ? el.scores.filter(elem => 
-                                                elem.month === month
-                                            ).sort((a ,b) => a.day - b.day).map(elem => {
-                                                if(elem.day == date.day){
-                                                    return(
-                                                        elem.totalNeto
-                                                    )
-                                                }
-                                            }) :
-                                            <td>Cargando...</td>}</td>
-                                            )
+                                        if(date.exceptional === false){
+                                            return(
+                                                <td className='normalDate'>{
+                                                    el.scores ? el.scores.filter(elem => 
+                                                    elem.month === month
+                                                ).sort((a ,b) => a.day - b.day).map(elem => {
+                                                    if(elem.day == date.day){
+                                                        return(
+                                                            elem.totalNeto
+                                                        )
+                                                    }
+                                                }) :
+                                                <td>Cargando...</td>}</td>
+                                                )
+                                        }
+                                        else{
+                                            return(
+                                                <td className='exceptionalDate'>{
+                                                    el.scores ? el.scores.filter(elem => 
+                                                    elem.month === month
+                                                ).sort((a ,b) => a.day - b.day).map(elem => {
+                                                    if(elem.day == date.day){
+                                                        return(
+                                                            elem.totalNeto
+                                                        )
+                                                    }
+                                                }) :
+                                                <td>Cargando...</td>}</td>
+                                                )
+                                        }
                                         }) : 
                                         <td></td>   
                                     }
