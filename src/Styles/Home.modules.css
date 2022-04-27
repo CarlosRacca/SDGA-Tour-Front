@@ -5,6 +5,19 @@
     text-align: center;
 } */
 
+
+.normalDate{
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+}
+
+.exceptionalDate{
+    background-color: red;
+    color: rgb(243, 233, 95);
+    border: 1px solid black;
+}
+
 .table{
     width: 90%;
     margin-left: 60px;
