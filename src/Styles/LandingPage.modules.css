@@ -1,12 +1,29 @@
 .divLanding{
-    background-color: #2A6B29;
-    padding-bottom: 100%;
+    background-image: url(../Images/golf11.JPG);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 50%;
 }
 
 .h1landing{
     color: rgb(250, 243, 227);
     font-family: Sorts Mill Goudy;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 140px;
     font-size: 70px;
 }
+
+.h5Landing{
+    color: rgb(250, 243, 227) ;
+    text-align: center;
+    padding-top: 220px;
+}
+
+.LinkLanding{
+    color: rgb(12, 83, 18);
+}
+
+.LinkLanding:hover{
+    color: rgb(250, 243, 227);
+}
+

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import '../Styles/LogIn.modules.css';
 
 export default function Login(){
 
@@ -14,13 +15,13 @@ export default function Login(){
 
     return(
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
-                    Email:
+            <form onSubmit={handleSubmit(onSubmit)} className='formLogIn'>
+                <label className='labelMail'>
                     <input 
                     type='text'
                     name='email'
                     className='mail'
+                    placeholder='Email'
                     {...register('email', {
                         required: {value: true, message: 'Completar Email'}
                     })}
@@ -30,11 +31,11 @@ export default function Login(){
                     </span>
                 </label>
                 <label>
-                    Contraseña:
                     <input 
                     type='password'
                     name='password'
                     className= 'contraseña'
+                    placeholder='Contraseña'
                     {...register('password', {
                         required: {value: true, message: 'Completar Contraseña'}
                     })}
@@ -43,7 +44,7 @@ export default function Login(){
                         {errors?.password?.message}
                     </span>
                 </label>
-                <button>Ingresar</button>
+                <button className='btnLogin'>Ingresar</button>
             </form>
         </div>
     );
