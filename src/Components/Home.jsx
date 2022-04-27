@@ -271,7 +271,7 @@ export default function Home(){
                         {
                             
                             scoresUser ? scoresUser.map(el => {
-                                var sum = []
+                                
                                 if(el.scores[0].categoria === "B"){
                                 return(
                                 <tr>
