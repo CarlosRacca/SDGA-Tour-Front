@@ -89,7 +89,7 @@ export default function Home(){
 
     return(
         <main className='mainH'>
-            <h1 className='h1H'>SDGA TOUR</h1>
+            <h1 className='h1H'>LEADERBOARD</h1>
             <Link to='/loadscorecard'>
                 <button className='button'>Cargar tarjeta</button>
             </Link>
@@ -265,7 +265,7 @@ export default function Home(){
                     </thead>
                     <tbody>
                         
-                        <tr className='trA'>
+                        <tr className='trB'>
                             <th>B</th>
                         </tr>
                         {
