@@ -84,8 +84,9 @@ export default function LoadScoreCard(){
 
     return(
         <div className='divLoad'>
-            <form onSubmit={e => onSubmit(e)}>
-                <div>
+            <h1 className='H1'>CARGA DE TARJETA</h1>
+            <form onSubmit={e => onSubmit(e)} className='formLoad'>
+                <div className='inputFront'>
                     Ida:
                     <input 
                     type='number'
@@ -150,7 +151,7 @@ export default function LoadScoreCard(){
                         <option value="B">B</option>
                     </select>
                 </div>
-                <button>Presentar</button>
+                <button className='BTNLoad'>Presentar Tarjeta</button>
             </form>
         </div>
     );

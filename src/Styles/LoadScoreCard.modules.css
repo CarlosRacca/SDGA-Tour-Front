@@ -1,6 +1,76 @@
 .divLoad{
-    background-image: url(../Images/LeaderBoard.jpg);
+    background-image: url(../Images/sand.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding-top: 600px;
+    padding-bottom: 200px;
+}
+
+.H1{
+    margin-top: -500px;
+    text-align: center;
+    color: black;
+    font-family: Sorts Mill Goudy;
+}
+
+.formLoad{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 20px;
+    width: 50%;
+    background-color: rgba(190, 172, 134);
+}
+
+.front_nine{
+    width: 75%;
+    margin-left: 20%;
+    padding-left: 20px;
+}
+
+.back_nine{
+    width: 75%;
+    margin-left: 16%;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.date{
+    width: 75%;
+    margin-left: 16.2%;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.handicap{
+    width: 75%;
+    margin-left: 12%;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.matricula{
+    width: 28.8rem;
+    margin-left: 12.2%;
+    margin-top: 10px;
+    size: -20%;
+}
+
+.categoria{
+    width: 75.2%;
+    margin-left: 11.6%;
+    margin-top: 10px;
+    height: 2rem;
+}
+
+.BTNLoad{
+    top: 50%;
+    left: 50%;
+    transform: translate(170%, 50%);
+    margin-bottom: 10px;
+    background-color: rgb(10, 83, 19);
+    padding: 7px;
+    color: white;
 }
