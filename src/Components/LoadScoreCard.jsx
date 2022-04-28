@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { postScore } from "../Actions";
+import '../Styles/LoadScoreCard.modules.css';
 
 export default function LoadScoreCard(){
     const navigate = useNavigate();
@@ -82,7 +83,7 @@ export default function LoadScoreCard(){
     }
 
     return(
-        <div>
+        <div className='divLoad'>
             <form onSubmit={e => onSubmit(e)}>
                 <div>
                     Ida:

@@ -1,11 +1,3 @@
-/* th, td, tr{
-    border: 1px solid black;
-    width: 100px;
-    padding: 5px;
-    text-align: center;
-} */
-
-
 .normalDate{
     background-color: red;
     color: black;
@@ -22,15 +14,22 @@
     width: 90%;
     margin-left: 60px;
     border: 1px solid black;
-    background-color: #78b983;
+    background-color: rgb(133, 206, 126, 0.8);
     margin-bottom: 200px;
 }
 
-.trA, .trB{
+.trA{
     background-color: lightgray;
     display: flex;
-    margin-right: -1050px;
-    border: 1px solid black
+    margin-right: -990px;
+    border: 1px solid black;
+}
+
+.trB{
+    background-color: lightgray;
+    display: flex;
+    margin-right: -1035px;
+    border: 1px solid black;
 }
 
 td{
@@ -43,7 +42,7 @@ td{
     margin-left: 1088px;
     margin-top: -30px;
     border: none;
-    background-color: #78b983;
+    background-color: goldenrod;
     height: 40px;
     width: 150px;
     text-align: center;
@@ -54,7 +53,7 @@ button:hover{
 }
 
 .h1H{
-    color: #78b983;
+    color: #040505;
     text-align: center;
     font-family: Sorts Mill Goudy;
     padding-top: 50px;
@@ -62,29 +61,15 @@ button:hover{
 }
 
 .h5H{
-    margin-left: 60px;
-    color: #78b983;
+    /* margin-left: 60px; */
+    color: #070807 solid;
     margin-top: -22px;
+    text-align: center;
 }
-
-/* .trAdsc{
-    background-color: red;
-}
-
-.trChamp{
-    background-color: gold;
-}
-
-.trScnd{
-    background-color: silver;
-}
-
-.trThird{
-    border: 1px solid black;
-    background-color: blue;
-} */
 
 .mainH{
-    background-color: #2A6B29;
+    background-image: url(../Images/augusta.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     padding-bottom: 200px;
 }
