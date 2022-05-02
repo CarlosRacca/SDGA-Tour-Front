@@ -104,15 +104,14 @@ export default function Home(){
     return(
         <main className='mainH'>
             <h1 className='h1H'>LEADERBOARD</h1>
+            
+            <div className='divButton'>
             <Link to='/loadscorecard'>
-                <button className='button'>Cargar tarjeta</button>
-            </Link>
-            <Link to='/rules'>
-                <button className='button'>Reglas del torneo</button>
-            </Link>
+                    <button className='button'>Cargar tarjeta</button>
+                </Link>
             <h5 className='h5H'>
                 PLANILLA DE SCORES NETO: 
-                <select onChange={e => handleSelectMonth(e)}>
+                <select className='selectMonth' onChange={e => handleSelectMonth(e)}>
                     <option value={String(date.getMonth() + 1).padStart(2, '0')}>Actual: {numberToMonth(String(date.getMonth() + 1).padStart(2, '0'))}</option>
                     <option value={'01'}>{numberToMonth('01')}</option>
                     <option value='02'>{numberToMonth('02')}</option>
@@ -128,6 +127,12 @@ export default function Home(){
                     <option value='12'>{numberToMonth('12')}</option>
                 </select> {year}
             </h5>
+                
+                <Link to='/rules'>
+                    <button className='button'>Reglas del torneo</button>
+                </Link>
+            </div>
+            <h5 className='tableTitle'>Categoría A</h5>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -154,17 +159,13 @@ export default function Home(){
                             }) :
                             <div>Cargando</div>
                         }
-                            <th>M1</th>
-                            <th>M2</th>
-                            <th>P</th>
-                            <th>SUM</th>
+                            <th className='normalDate'>M1</th>
+                            <th className='normalDate'>M2</th>
+                            <th className='normalDate'>P</th>
+                            <th className='normalDate'>SUM</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        <tr className='trA'>
-                            <th>A</th>
-                        </tr>
                         {
                             orderByScoresTotal()
                         }
@@ -279,6 +280,10 @@ export default function Home(){
                     </tbody>
                     <tfoot></tfoot>
                 </table>
+                <h5 className='tableTitle'>
+                    <div></div>
+                    Categoría B
+                    <div></div></h5>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -302,17 +307,13 @@ export default function Home(){
                             }) :
                             <div>Cargando</div>
                         }
-                            <th>M1</th>
-                            <th>M2</th>
-                            <th>P</th>
-                            <th>SUM</th>
+                            <th className='normalDate'>M1</th>
+                            <th className='normalDate'>M2</th>
+                            <th className='normalDate'>P</th>
+                            <th className='normalDate'>SUM</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        <tr className='trA'>
-                            <th>B</th>
-                        </tr>
                         {
                             orderByScoresTotal()
                         }

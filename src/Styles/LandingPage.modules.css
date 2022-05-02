@@ -1,12 +1,15 @@
 .divLanding{
-    background-image: url(../Images/Golf\ 1.JPG);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding-bottom: 50%;
+    background-image: url('https://golfscape.com/blog/wp-content/uploads/2018/11/aphrodite-hills-golf-course.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
 }
 
+
 .h1landing{
-    color: rgb(250, 243, 227);
+    color: rgb(120, 122, 98);
     font-family: Sorts Mill Goudy;
     text-align: center;
     padding-top: 140px;
@@ -20,7 +23,7 @@
 }
 
 .LinkLanding{
-    color: rgb(12, 83, 18);
+    color: rgb(120, 122, 98);
 }
 
 .LinkLanding:hover{
