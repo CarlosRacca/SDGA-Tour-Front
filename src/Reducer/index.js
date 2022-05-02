@@ -3,7 +3,8 @@ const initialState = {
     scores: [],
     users: [],
     scoresUser: [],
-    dates: []
+    dates: [],
+    specificDates: []
 };
 
 function rootReducer(state = initialState, action){
@@ -31,6 +32,12 @@ function rootReducer(state = initialState, action){
                 ...state,
                 dates: action.payload
             }
+        
+        case 'GET_SPECIFIC_DATES':
+        return {
+            ...state,
+            specificDates: action.payload
+        }
 
         case 'POST_DATE':
             return {

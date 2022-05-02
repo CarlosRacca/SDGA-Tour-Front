@@ -111,7 +111,7 @@ export default function LoadDates(){
                 </div>
                 <button>Presentar</button>
                 <Link to='/home'>
-                    <button>Volver al inicio</button>
+                    <button>Volver</button>
                 </Link>
             </form>
         </div>

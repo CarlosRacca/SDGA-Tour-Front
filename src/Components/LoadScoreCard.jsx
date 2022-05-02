@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { postScore } from "../Actions";
 import '../Styles/LoadScoreCard.modules.css';
@@ -152,6 +152,9 @@ export default function LoadScoreCard(){
                     </select>
                 </div>
                 <button className='BTNLoad'>Presentar Tarjeta</button>
+                <Link to='/home'>
+                    <button className='BTNLoad'>Volver</button>
+                </Link>
             </form>
         </div>
     );
