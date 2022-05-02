@@ -8,7 +8,7 @@ export default function LandingPage(){
     return(
         <div className='divLanding'>
             <h1 className='h1landing'>Bienvenidos al SDGA Tour!</h1>
-            <Login/>
+                <Login/>
             <h5 className='h5Landing'>
                 No tenes cuenta? <Link to='/register' className='LinkLanding'>Registrate GIL</Link>
             </h5>

@@ -12,16 +12,14 @@ export default function Home(){
     const dispatch = useDispatch();
     const [month, setMonth] = useState(String(date.getMonth() + 1).padStart(2, '0'))
 
-    // let month = String(date.getMonth() + 1).padStart(2, '0')
-
     useEffect(() => {
         dispatch(getUsers())
         dispatch(getScores())
         dispatch(getScoresUser())
-        dispatch(getDates(month, year))
+        dispatch(getDates())
     }, [dispatch])
 
-    const dates = useSelector(state => state.dates);
+    let dates = useSelector(state => state.dates);
     const scoresUser = useSelector(state => state.scoresUser);
 
     
@@ -92,9 +90,15 @@ export default function Home(){
             return 'DICIEMBRE'
         }
     }
-
+  
     function handleSelectMonth(e){
         setMonth(e.target.value)
+    }
+
+    function filterDatesByMonth(){
+        let datesFil = dates.filter(el => el.month == month)
+
+        dates = datesFil
     }
 
     return(
@@ -106,7 +110,7 @@ export default function Home(){
             <h5 className='h5H'>
                 PLANILLA DE SCORES NETO: 
                 <select onChange={e => handleSelectMonth(e)}>
-                    <option value={month}>{numberToMonth(String(date.getMonth() + 1).padStart(2, '0'))}</option>
+                    <option value={String(date.getMonth() + 1).padStart(2, '0')}>Actual: {numberToMonth(String(date.getMonth() + 1).padStart(2, '0'))}</option>
                     <option value={'01'}>{numberToMonth('01')}</option>
                     <option value='02'>{numberToMonth('02')}</option>
                     <option value='03'>{numberToMonth('03')}</option>
@@ -125,6 +129,9 @@ export default function Home(){
                     <thead>
                         <tr>
                             <th>Jugador</th>
+                            {
+                                filterDatesByMonth()
+                            }
                             {
                             dates ? dates.map(el => {
                                 if(el.exceptional === false){
@@ -202,10 +209,7 @@ export default function Home(){
                                         <td></td>   
                                     }
                                     {
-                                       scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
-                                           if(el.user === 'Juan Racca'){
-                                               console.log(scoresFiltered)
-                                           }                                           
+                                       scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {                                       
                                             return(
                                                 <td>{elem.totalNeto}</td>
                                             )
@@ -353,10 +357,7 @@ export default function Home(){
                                         <td></td>   
                                     }
                                     {
-                                       scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
-                                           if(el.user === 'Juan Racca'){
-                                               console.log(scoresFiltered)
-                                           }                                           
+                                       scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {                                        
                                             return(
                                                 <td>{elem.totalNeto}</td>
                                             )

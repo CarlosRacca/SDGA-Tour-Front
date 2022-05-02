@@ -31,7 +31,7 @@ export function getScoresUser(){
     }
 }
 
-export function getDates(month, year){
+export function getSpecificDates(month, year){
 
     return async function(dispatch){
 
@@ -39,6 +39,21 @@ export function getDates(month, year){
 
         let dates = allDates.data
         
+        return dispatch({
+            type: 'GET_SPECIFIC_DATES',
+            payload: dates
+        })
+    }
+}
+
+export function getDates(){
+
+    return async function(dispatch){
+
+        let allDates = await axios.get('https://sdga-tour.herokuapp.com/dates')
+
+        let dates = allDates.data
+
         return dispatch({
             type: 'GET_DATES',
             payload: dates
