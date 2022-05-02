@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import '../Styles/Home.modules.css'
 import { Link } from 'react-router-dom';
@@ -6,13 +6,14 @@ import { getScores, getUsers, getScoresUser, getDates } from "../Actions/index";
 
 
 export default function Home(){
+    let date = new Date();
+    let year =  date.getFullYear();
 
     const dispatch = useDispatch();
+    const [month, setMonth] = useState(String(date.getMonth() + 1).padStart(2, '0'))
 
-    let date = new Date();
-    let month = String(date.getMonth() + 1).padStart(2, '0')
-    let year =  date.getFullYear();
-    
+    // let month = String(date.getMonth() + 1).padStart(2, '0')
+
     useEffect(() => {
         dispatch(getUsers())
         dispatch(getScores())
@@ -23,26 +24,30 @@ export default function Home(){
     const dates = useSelector(state => state.dates);
     const scoresUser = useSelector(state => state.scoresUser);
 
+    
+
     function orderByScoresTotal(){
         scoresUser.forEach(el => {
             const scoresFiltered = el.scores.filter(elem => elem.month === month)
             if(scoresFiltered.length >= 3){
                 el.sum = []
-                el.scores.sort((a, b) => a.totalNeto - b.totalNeto)
-                el.scores.forEach(score => {
-                    if(el.scores.indexOf(score) === 0){
-                        el.sum.push(score.totalNeto)
-                        console.log(el.sum)
-                    }
-                    if(el.scores.indexOf(score) === 1){
+                scoresFiltered.sort((a, b) => a.totalNeto - b.totalNeto)
+                scoresFiltered.forEach(score => {
+                    if(scoresFiltered.indexOf(score) === 0){
                         el.sum.push(score.totalNeto)
                     }
-                    if(el.scores.indexOf(score) === el.scores.length - 1){
+                    if(scoresFiltered.indexOf(score) === 1){
+                        el.sum.push(score.totalNeto)
+                    }
+                    if(scoresFiltered.indexOf(score) === scoresFiltered.length - 1){
                         el.sum.push(score.totalNeto)
                     }
                 })
 
                 el.total = [el.sum[0] + el.sum[1] + el.sum[2]]
+            }
+            else{
+                el.total = ['Faltan cargar tarjetas!']
             }
         })
 
@@ -88,13 +93,34 @@ export default function Home(){
         }
     }
 
+    function handleSelectMonth(e){
+        setMonth(e.target.value)
+    }
+
     return(
         <main className='mainH'>
             <h1 className='h1H'>LEADERBOARD</h1>
             <Link to='/loadscorecard'>
                 <button className='button'>Cargar tarjeta</button>
             </Link>
-            <h5 className='h5H'>PLANILLA DE SCORES NETO: {numberToMonth(month)} {year}</h5>
+            <h5 className='h5H'>
+                PLANILLA DE SCORES NETO: 
+                <select onChange={e => handleSelectMonth(e)}>
+                    <option value={month}>{numberToMonth(String(date.getMonth() + 1).padStart(2, '0'))}</option>
+                    <option value={'01'}>{numberToMonth('01')}</option>
+                    <option value='02'>{numberToMonth('02')}</option>
+                    <option value='03'>{numberToMonth('03')}</option>
+                    <option value='04'>{numberToMonth('04')}</option>
+                    <option value='05'>{numberToMonth('05')}</option>
+                    <option value='06'>{numberToMonth('06')}</option>
+                    <option value='07'>{numberToMonth('07')}</option>
+                    <option value='08'>{numberToMonth('08')}</option>
+                    <option value='09'>{numberToMonth('09')}</option>
+                    <option value='10'>{numberToMonth('10')}</option>
+                    <option value='11'>{numberToMonth('11')}</option>
+                    <option value='12'>{numberToMonth('12')}</option>
+                </select> {year}
+            </h5>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -134,6 +160,7 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
+                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
 
                                 if(el.scores[0].categoria === "A"){
                                 return(
@@ -175,7 +202,10 @@ export default function Home(){
                                         <td></td>   
                                     }
                                     {
-                                       el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                       scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                           if(el.user === 'Juan Racca'){
+                                               console.log(scoresFiltered)
+                                           }                                           
                                             return(
                                                 <td>{elem.totalNeto}</td>
                                             )
@@ -183,8 +213,8 @@ export default function Home(){
                                         <td></td>
                                     }
                                     {
-                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
-                                            if(el.scores.length > 1){
+                                        scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                            if(scoresFiltered.length > 1){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
                                                 )
@@ -199,8 +229,8 @@ export default function Home(){
                                         
                                     }
                                     {
-                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
-                                            if(el.scores.length > 2){
+                                        scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                            if(scoresFiltered.length > 2){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
                                                 )
@@ -216,9 +246,18 @@ export default function Home(){
                                     }
                                     {
                                         el.total ? el.total.map(total => {
-                                            return(
-                                                <td>{total}</td>
-                                            )
+                                            if(typeof total === "number"){
+                                                
+                                                return(
+                                                    <td>{total}</td>
+                                                )
+                                            }
+                                            else{
+                                                
+                                                return(
+                                                    <td></td>
+                                                )
+                                            }
                                         }) :
                                         <td></td>
                                     } 
@@ -272,6 +311,7 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
+                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
 
                                 if(el.scores[0].categoria === "B"){
                                 return(
@@ -313,7 +353,10 @@ export default function Home(){
                                         <td></td>   
                                     }
                                     {
-                                       el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                       scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                           if(el.user === 'Juan Racca'){
+                                               console.log(scoresFiltered)
+                                           }                                           
                                             return(
                                                 <td>{elem.totalNeto}</td>
                                             )
@@ -321,8 +364,8 @@ export default function Home(){
                                         <td></td>
                                     }
                                     {
-                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
-                                            if(el.scores.length > 1){
+                                        scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                            if(scoresFiltered.length > 1){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
                                                 )
@@ -337,8 +380,8 @@ export default function Home(){
                                         
                                     }
                                     {
-                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
-                                            if(el.scores.length > 2){
+                                        scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                            if(scoresFiltered.length > 2){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
                                                 )
@@ -354,9 +397,18 @@ export default function Home(){
                                     }
                                     {
                                         el.total ? el.total.map(total => {
-                                            return(
-                                                <td>{total}</td>
-                                            )
+                                            if(typeof total === "number"){
+                                                
+                                                return(
+                                                    <td>{total}</td>
+                                                )
+                                            }
+                                            else{
+                                                
+                                                return(
+                                                    <td></td>
+                                                )
+                                            }
                                         }) :
                                         <td></td>
                                     } 
