@@ -4,6 +4,7 @@ import Register from './Components/Register';
 import Home from './Components/Home';
 import LoadScoreCard from './Components/LoadScoreCard';
 import LoadDates from './Components/LoadDates';
+import Rules from './Components/Rules';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
             <Route path='/home' element={<Home/>}/>
             <Route path='/loadscorecard' element={<LoadScoreCard/>}/>
             <Route path='/dates' element={<LoadDates/>}/>
+            <Route path='/rules' element={<Rules/>}/>
           </Routes>
         </div>
       </BrowserRouter>

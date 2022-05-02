@@ -107,6 +107,9 @@ export default function Home(){
             <Link to='/loadscorecard'>
                 <button className='button'>Cargar tarjeta</button>
             </Link>
+            <Link to='/rules'>
+                <button className='button'>Reglas del torneo</button>
+            </Link>
             <h5 className='h5H'>
                 PLANILLA DE SCORES NETO: 
                 <select onChange={e => handleSelectMonth(e)}>
