@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { postUser } from '../Actions/index'
@@ -140,7 +141,14 @@ export default function Register(){
                     />
                 </div>
                 <button className='buttonR'>Registrarse</button>
+                
+                
             </form>
+            <div>Ya estás registrado?? 
+                <Link to='/'>
+                    <button>Logueate</button>
+                </Link>
+            </div>
         </div>
     );
 };
