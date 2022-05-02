@@ -26,12 +26,14 @@ export default function Home(){
 
     function orderByScoresTotal(){
         scoresUser.forEach(el => {
-            if(el.scores.length >= 3){
+            const scoresFiltered = el.scores.filter(elem => elem.month === month)
+            if(scoresFiltered.length >= 3){
                 el.sum = []
                 el.scores.sort((a, b) => a.totalNeto - b.totalNeto)
                 el.scores.forEach(score => {
                     if(el.scores.indexOf(score) === 0){
                         el.sum.push(score.totalNeto)
+                        console.log(el.sum)
                     }
                     if(el.scores.indexOf(score) === 1){
                         el.sum.push(score.totalNeto)
@@ -173,18 +175,16 @@ export default function Home(){
                                         }) : 
                                         <td></td>   
                                     }
-                                    
                                     {
-                                        el.scores ? el.scores.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                       el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
                                             return(
                                                 <td>{elem.totalNeto}</td>
                                             )
-                                        })
-                                        : 
+                                        }) :
                                         <td></td>
                                     }
                                     {
-                                        el.scores ? el.scores.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(el.scores.length > 1){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
@@ -200,7 +200,7 @@ export default function Home(){
                                         
                                     }
                                     {
-                                        el.scores ? el.scores.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(el.scores.length > 2){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
@@ -265,13 +265,15 @@ export default function Home(){
                     </thead>
                     <tbody>
                         
-                        <tr className='trB'>
+                        <tr className='trA'>
                             <th>B</th>
                         </tr>
                         {
-                            
+                            orderByScoresTotal()
+                        }
+                        {   
                             scoresUser ? scoresUser.map(el => {
-                                
+
                                 if(el.scores[0].categoria === "B"){
                                 return(
                                 <tr>
@@ -311,18 +313,16 @@ export default function Home(){
                                         }) : 
                                         <td></td>   
                                     }
-                                    
                                     {
-                                        el.scores ? el.scores.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
+                                       el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {
                                             return(
                                                 <td>{elem.totalNeto}</td>
                                             )
-                                        })
-                                        : 
+                                        }) :
                                         <td></td>
                                     }
                                     {
-                                        el.scores ? el.scores.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(el.scores.length > 1){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
@@ -338,7 +338,7 @@ export default function Home(){
                                         
                                     }
                                     {
-                                        el.scores ? el.scores.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
+                                        el.scores ? el.scores.filter(elem => elem.month === month).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(el.scores.length > 2){
                                                 return(
                                                     <td>{elem.totalNeto}</td>
@@ -360,7 +360,7 @@ export default function Home(){
                                             )
                                         }) :
                                         <td></td>
-                                    }
+                                    } 
                                 </tr>)
                                 }
                             }) : 
