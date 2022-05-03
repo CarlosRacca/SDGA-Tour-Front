@@ -144,10 +144,8 @@ export default function Register(){
                 
                 
             </form>
-            <div>Ya estás registrado?? 
-                <Link to='/'>
-                    <button>Logueate</button>
-                </Link>
+            <div className='divLoeguate'>
+                Ya estás registrado?? <Link to='/' className='logueate'> Logueate</Link>
             </div>
         </div>
     );
