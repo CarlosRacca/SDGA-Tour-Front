@@ -90,9 +90,6 @@ export default function LandingPage(){
                         placeholder='Email'
                         onChange={e => handleChange(e)}
                         />
-                        <span className='text-danger text-small d-block mb-2'>
-                            {errors?.email?.message}
-                        </span>
                     </label>
                     <label>
                         <input 
@@ -102,9 +99,6 @@ export default function LandingPage(){
                         placeholder='Contraseña'
                         onChange={e => handleChange(e)}
                         />
-                        <span className='text-danger text-small d-block mb-2'>
-                            {errors?.password?.message}
-                        </span>
                     </label>
                     <button className='btnLogin'>Ingresar</button>
                 </form>
