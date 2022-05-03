@@ -19,9 +19,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    max-width: fit-content;
+    transform: translate(-50%, -40%);
 }
 
 .divFormR{
@@ -49,8 +47,9 @@
 }
 
 .matricula{
-    width: 410px; 
     padding-left: 20px; 
+    width: 100px;
+    margin:unset;
 }
 
 .buttonR{
@@ -62,4 +61,13 @@
     top: 45%;
     left: 50%;
     transform: translate(90%, 10%);
+}
+
+.divLoeguate{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.logueate{
+    color: goldenrod;
 }
