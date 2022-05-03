@@ -80,7 +80,9 @@ button:hover{
 
 .mainH{
     background-image: url(../Images/augusta1.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    padding-bottom: 200px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
 }
