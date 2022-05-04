@@ -1,12 +1,15 @@
 .normalDate{
     text-align: center;
-    background-color: red;
     color: black;
     border: 1px solid black;
 }
 
+.scores{
+    text-align: center;
+}
+
 .exceptionalDate{
-    background: red;
+    text-align: center;
     color: rgb(243, 233, 95);
     border: 1px solid black;
 }
