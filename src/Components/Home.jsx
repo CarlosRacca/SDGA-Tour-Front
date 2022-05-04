@@ -171,7 +171,10 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
-                                const scoresDate = el.scores.map(elem => {
+                                
+                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
+                                
+                                const scoresDate = scoresFiltered.map(elem => {
                                     return{
                                         ...elem,
                                         date2: new Date(elem.year, elem.month, elem.day)
@@ -179,10 +182,8 @@ export default function Home(){
                                 })
 
                                 scoresDate.sort((a,b) => b.date2 - a.date2)
-                                
-                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
-                                
-                                if(scoresDate[0].categoria === "A"){
+
+                                if(scoresDate.length > 0 ? scoresDate[0].categoria === "A" : scoresDate.length > 0){
                                 return(
                                 <tr>
                                     <td>{el.user}</td>
@@ -224,7 +225,7 @@ export default function Home(){
                                     {
                                        scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {                                       
                                             return(
-                                                <td>{elem.totalNeto}</td>
+                                                <td className='scores'>{elem.totalNeto}</td>
                                             )
                                         }) :
                                         <td></td>
@@ -233,7 +234,7 @@ export default function Home(){
                                         scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(scoresFiltered.length > 1){
                                                 return(
-                                                    <td>{elem.totalNeto}</td>
+                                                    <td className='scores'>{elem.totalNeto}</td>
                                                 )
                                             }
                                             else{
@@ -249,7 +250,7 @@ export default function Home(){
                                         scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(scoresFiltered.length > 2){
                                                 return(
-                                                    <td>{elem.totalNeto}</td>
+                                                    <td className='scores'>{elem.totalNeto}</td>
                                                 )
                                             }
                                             else{
@@ -266,7 +267,7 @@ export default function Home(){
                                             if(typeof total === "number"){
                                                 
                                                 return(
-                                                    <td>{total}</td>
+                                                    <td className='scores'>{total}</td>
                                                 )
                                             }
                                             else{
@@ -328,7 +329,10 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
-                                const scoresDate = el.scores.map(elem => {
+                                
+                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
+                                
+                                const scoresDate = scoresFiltered.map(elem => {
                                     return{
                                         ...elem,
                                         date2: new Date(elem.year, elem.month, elem.day)
@@ -336,10 +340,8 @@ export default function Home(){
                                 })
 
                                 scoresDate.sort((a,b) => b.date2 - a.date2)
-                                
-                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
 
-                                if(scoresDate[0].categoria === "B"){
+                                if(scoresDate.length > 0 ? scoresDate[0].categoria === "B" : scoresDate.length > 0){
                                 return(
                                 <tr>
                                     <td>{el.user}</td>
@@ -381,7 +383,7 @@ export default function Home(){
                                     {
                                        scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-1).map(elem => {                                        
                                             return(
-                                                <td>{elem.totalNeto}</td>
+                                                <td className='scores'>{elem.totalNeto}</td>
                                             )
                                         }) :
                                         <td></td>
@@ -390,7 +392,7 @@ export default function Home(){
                                         scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => b.totalNeto - a.totalNeto).slice(-2).sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(scoresFiltered.length > 1){
                                                 return(
-                                                    <td>{elem.totalNeto}</td>
+                                                    <td className='scores'>{elem.totalNeto}</td>
                                                 )
                                             }
                                             else{
@@ -406,7 +408,7 @@ export default function Home(){
                                         scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(scoresFiltered.length > 2){
                                                 return(
-                                                    <td>{elem.totalNeto}</td>
+                                                    <td className='scores'>{elem.totalNeto}</td>
                                                 )
                                             }
                                             else{
@@ -423,7 +425,7 @@ export default function Home(){
                                             if(typeof total === "number"){
                                                 
                                                 return(
-                                                    <td>{total}</td>
+                                                    <td className='scores'>{total}</td>
                                                 )
                                             }
                                             else{
