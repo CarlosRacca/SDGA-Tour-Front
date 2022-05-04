@@ -171,9 +171,18 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
-                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
+                                const scoresDate = el.scores.map(elem => {
+                                    return{
+                                        ...elem,
+                                        date2: new Date(elem.year, elem.month, elem.day)
+                                    }
+                                })
 
-                                if(el.scores[0].categoria === "A"){
+                                scoresDate.sort((a,b) => b.date2 - a.date2)
+                                
+                                const scoresFiltered = el.scores.filter(elem => elem.month === month)
+                                
+                                if(scoresDate[0].categoria === "A"){
                                 return(
                                 <tr>
                                     <td>{el.user}</td>
@@ -319,9 +328,18 @@ export default function Home(){
                         }
                         {   
                             scoresUser ? scoresUser.map(el => {
+                                const scoresDate = el.scores.map(elem => {
+                                    return{
+                                        ...elem,
+                                        date2: new Date(elem.year, elem.month, elem.day)
+                                    }
+                                })
+
+                                scoresDate.sort((a,b) => b.date2 - a.date2)
+                                
                                 const scoresFiltered = el.scores.filter(elem => elem.month === month)
 
-                                if(el.scores[0].categoria === "B"){
+                                if(scoresDate[0].categoria === "B"){
                                 return(
                                 <tr>
                                     <td>{el.user}</td>
