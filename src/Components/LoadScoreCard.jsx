@@ -85,77 +85,85 @@ export default function LoadScoreCard(){
     return(
         <div className='divLoad'>
             <h1 className='H1'>CARGA DE TARJETA</h1>
-            <form onSubmit={e => onSubmit(e)} className='formLoad'>
-                <div className='inputFront'>
-                    Ida:
-                    <input 
-                    type='number'
-                    name='front_nine'
-                    placeholder='ej: 40'
-                    value={input.front_nine}
-                    onChange={e => handleChange(e)}
-                    className='front_nine'
-                    />
-                </div>
-                <div>
-                    Vuelta:
-                    <input 
-                    type='number'
-                    name='back_nine'
-                    placeholder='ej: 40'
-                    value={input.back_nine}
-                    onChange={e => handleChange(e)}
-                    className='back_nine'/>
-                </div>
-                <div>
-                    Fecha:
-                    <input
-                    type='text'
-                    name='date'
-                    placeholder='ej: 13-03-2022'
-                    value={input.date}
-                    onChange={e => handleChange(e)}
-                    className='date'/>
-                </div>
-                <div>
-                    Handicap:
-                    <input
-                    type='number'
-                    name='handicap'
-                    placeholder='ej: 12'
-                    value={input.handicap}
-                    onChange={e => handleChange(e)}
-                    className='handicap'/>
-                </div>
-                <div>
-                    Matrícula:
-                    <input
-                    type='number'
-                    name='matricula'
-                    placeholder='ej: 117547'
-                    value={input.matricula}
-                    onChange={e => handleChange(e)}
-                    className='matricula'/>
-                </div>
-                <div>
-                    Categoría:
-                    <select
-                    type='select'
-                    name='categoria'
-                    placeholder='ej: 117547'
-                    value={input.categoria}
-                    onChange={e => handleChange(e)}
-                    className='categoria'>
-                        <option value="Empty"></option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                    </select>
-                </div>
-                <button className='BTNLoad'>Presentar Tarjeta</button>
-                <Link to='/home'>
-                    <button className='BTNLoad'>Volver</button>
-                </Link>
-            </form>
+            <div className='divForm'>
+                <form onSubmit={e => onSubmit(e)} className='formLoad'>
+                    <div className='input'>
+                        <b>Ida:</b>
+                        <input 
+                        type='number'
+                        name='front_nine'
+                        placeholder='ej: 40'
+                        value={input.front_nine}
+                        onChange={e => handleChange(e)}
+                        className='inputs'
+                        />
+                    </div>
+                    <div className='input'>
+                        <b>Vuelta:</b>
+                        <input 
+                        type='number'
+                        name='back_nine'
+                        placeholder='ej: 40'
+                        value={input.back_nine}
+                        onChange={e => handleChange(e)}
+                        className='inputs'/>
+                    </div>
+                    <div className='input'>
+                        <b>Fecha:</b>
+                        <input
+                        type='text'
+                        name='date'
+                        placeholder='ej: 13-03-2022'
+                        value={input.date}
+                        onChange={e => handleChange(e)}
+                        className='inputs'/>
+                    </div>
+                    <div className='input'>
+                        <b>Handicap:</b>
+                        <input
+                        type='number'
+                        name='handicap'
+                        placeholder='ej: 12'
+                        value={input.handicap}
+                        onChange={e => handleChange(e)}
+                        className='inputs'/>
+                    </div>
+                    <div className='input'>
+                        <b>Matrícula:</b>
+                        <input
+                        type='number'
+                        name='matricula'
+                        placeholder='ej: 117547'
+                        value={input.matricula}
+                        onChange={e => handleChange(e)}
+                        className='inputs'/>
+                    </div>
+                    <div className='input'>
+                        <b>Categoría:</b>
+                        <select
+                        type='select'
+                        name='categoria'
+                        placeholder='ej: 117547'
+                        value={input.categoria}
+                        onChange={e => handleChange(e)}
+                        className='inputs'>
+                            <option value="Empty"></option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                        </select>
+                    </div>
+                    <div className='divButtons'>
+                        <div>
+                            <button className='BTNLoad'>Presentar Tarjeta</button>
+                        </div>
+                        <div>
+                            <Link to='/home'>
+                                <button className='BTNLoad'>Volver</button>
+                            </Link>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

@@ -1,76 +1,80 @@
 .divLoad{
     background-image: url(../Images/sand.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    padding-top: 600px;
-    padding-bottom: 200px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .H1{
-    margin-top: -500px;
+    padding-top: 60px;
+    padding-bottom: 20px;
     text-align: center;
     color: black;
     font-family: Sorts Mill Goudy;
 }
 
+.divForm{
+    font-family: Sorts Mill Goudy;
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .formLoad{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    margin: 100px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 480px; 
+    height: 480px;
+    margin-top: -1px;
     border: 1px solid black;
-    padding: 20px;
-    width: 50%;
-    background-color: rgba(190, 172, 134);
+    border-radius: 13px;
+    background-color: rgba(190, 172, 134, 0.8);
 }
 
-.front_nine{
-    width: 75%;
-    margin-left: 20%;
-    padding-left: 20px;
+.input{
+    display: flex;
+    text-decoration: blink;
+    width: 400px;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
 }
 
-.back_nine{
-    width: 75%;
-    margin-left: 16%;
-    margin-top: 10px;
-    padding-left: 20px;
+.inputs{
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(8, 8, 8, 0.7);
+    height: 30px;
+    margin: 2px;
 }
 
-.date{
-    width: 75%;
-    margin-left: 16.2%;
-    margin-top: 10px;
-    padding-left: 20px;
+::placeholder{
+    color: rgb(238, 238, 238, 0.7); 
+    padding-left: 10px;
 }
 
-.handicap{
-    width: 75%;
-    margin-left: 12%;
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-.matricula{
-    width: 28.8rem;
-    margin-left: 12.2%;
-    margin-top: 10px;
-    size: -20%;
-}
-
-.categoria{
-    width: 75.2%;
-    margin-left: 11.6%;
-    margin-top: 10px;
-    height: 2rem;
+.divButtons{
+    padding-top: 10px;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
 }
 
 .BTNLoad{
-    top: 50%;
-    left: 50%;
-    transform: translate(170%, 50%);
-    margin-bottom: 10px;
-    background-color: rgb(10, 83, 19);
+    font-size: 18px;
+    background-color: rgb(8, 8, 8, 0.9);
     padding: 7px;
     color: white;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
 }
