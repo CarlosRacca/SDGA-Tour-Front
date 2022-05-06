@@ -132,7 +132,8 @@ export default function Home(){
                     <button className='button'>Reglas del torneo</button>
                 </Link>
             </div>
-            <h5 className='tableTitle'>Categoría A</h5>
+            <div className='divTable'>
+                <h5 className='tableTitle'>Categoría A</h5>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -290,10 +291,9 @@ export default function Home(){
                     </tbody>
                     <tfoot></tfoot>
                 </table>
-                <h5 className='tableTitle'>
-                    <div></div>
-                    Categoría B
-                    <div></div></h5>
+            </div>
+            <div className='divTable'>
+                <h5 className='tableTitle'>Categoría B</h5>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -448,6 +448,7 @@ export default function Home(){
                     </tbody>
                     <tfoot></tfoot>
                 </table>
+            </div>
         </main>
     );
 };
