@@ -162,7 +162,7 @@ export default function Home(){
                         }
                             <th className='normalDate'>M1</th>
                             <th className='normalDate'>M2</th>
-                            <th className='normalDate'>P</th>
+                            <th className='worst'>P</th>
                             <th className='normalDate'>SUM</th>
                         </tr>
                     </thead>
@@ -251,7 +251,7 @@ export default function Home(){
                                         scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(scoresFiltered.length > 2){
                                                 return(
-                                                    <td className='scores'>{elem.totalNeto}</td>
+                                                    <td className='worst'><b>{elem.totalNeto}</b></td>
                                                 )
                                             }
                                             else{
@@ -319,7 +319,7 @@ export default function Home(){
                         }
                             <th className='normalDate'>M1</th>
                             <th className='normalDate'>M2</th>
-                            <th className='normalDate'>P</th>
+                            <th className='worst'>P</th>
                             <th className='normalDate'>SUM</th>
                         </tr>
                     </thead>
@@ -408,7 +408,7 @@ export default function Home(){
                                         scoresFiltered.length > 0 ? scoresFiltered.sort((a,b) => a.totalNeto - b.totalNeto).slice(-1).map(elem => {
                                             if(scoresFiltered.length > 2){
                                                 return(
-                                                    <td className='scores'>{elem.totalNeto}</td>
+                                                    <td className='worst'><b>{elem.totalNeto}</b></td>
                                                 )
                                             }
                                             else{

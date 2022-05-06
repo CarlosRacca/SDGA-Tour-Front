@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+.worst{
+    text-align: center;
+    color: rgb(184, 0, 0);
+}
+
 .exceptionalDate{
     text-align: center;
     color: rgb(243, 233, 95);
