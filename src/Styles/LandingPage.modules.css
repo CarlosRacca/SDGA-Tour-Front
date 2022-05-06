@@ -51,10 +51,11 @@
 }
 
 .h1landing{
-    color: rgb(120, 122, 98);
+    color: rgb(135, 136, 130);
     font-family: Sorts Mill Goudy;
     text-align: center;
-    padding-top: 140px;
+    padding-top: 70px;
+    padding-bottom: 30px;
     font-size: 70px;
     text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
