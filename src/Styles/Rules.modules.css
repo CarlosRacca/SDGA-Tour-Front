@@ -1,0 +1,58 @@
+.divBack{
+    background-image: url('https://i0.wp.com/sextoanillo.com/wp-content/uploads/2020/11/h_12ANGC10-MMa2760Hc.jpg?fit=1440%2C810&ssl=1');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: Sorts Mill Goudy;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1Rules{
+    color: rgba(9, 49, 9, 0.8);
+    margin: 20px;
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px rgba(9, 49, 9, 0.8);
+}
+
+.divIntern{
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 10px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgba(9, 49, 9, 0.8);
+}
+
+.h4Titles{
+    margin: 10px;
+    color: rgba(9, 49, 9);
+    text-decoration: underline;
+    margin-left: 20px;
+}
+
+.pRules{
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.buttonRules{
+    background-color: goldenrod;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    margin-top: -20px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.divButtonRules{
+    display: flex;
+    justify-content: center;
+}
