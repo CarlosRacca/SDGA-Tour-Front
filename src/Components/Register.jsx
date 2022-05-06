@@ -146,7 +146,7 @@ export default function Register(){
                 </form>
             </div>
             <div className='divLoeguate'>
-                Ya estás registrado?? <Link to='/' className='logueate'> Logueate</Link>
+                Ya estás registrado? <Link to='/' className='logueate'> Logueate</Link>
             </div>
         </div>
     );
