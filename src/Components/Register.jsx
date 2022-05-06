@@ -85,65 +85,66 @@ export default function Register(){
     return(
         <div className='divR'>
             <h1 className='h1R'>SDGA TOUR</h1>
-            <form className='formR' onSubmit={e => onSubmit(e)}>
-                <div className='divFormR'>
-                    
-                    <input 
-                    type='text'
-                    name='name'
-                    value={input.name}
-                    onChange={e => handleChange(e)}
-                    className='nombre'
-                    placeholder='Nombre'
-                    />
-                </div>
-                <div className='divFormR'>
-                    
-                    <input 
-                    type='text'
-                    name='lastname'
-                    value={input.lastname}
-                    onChange={e => handleChange(e)}
-                    className='apellido'
-                    placeholder='Apellido'
-                    />
-                </div>
-                <div className='divFormR'>
-                    
-                    <input 
-                    type='text'
-                    name='email'
-                    value={input.email}
-                    onChange={e => handleChange(e)}
-                    className='mail'
-                    placeholder='Mail'
-                    />
-                </div>
-                <div className='divFormR'>
-                    
-                    <input 
-                    type='password'
-                    name='password'
-                    value={input.password}
-                    onChange={e => handleChange(e)}
-                    className='contraseña'
-                    placeholder='Contraseña'
-                    />
-                </div>
-                <div className='divFormR'>
-                    <input 
-                    type='number'
-                    name='matricula'
-                    value={input.matricula}
-                    onChange={e => handleChange(e)}
-                    className='matricula'
-                    placeholder='Matrícula'
-                    />
-                </div>
-                <button className='buttonR'>Registrarse</button>
-                
-                
-            </form>
+            <div className='divForm'>
+                <form className='formR' onSubmit={e => onSubmit(e)}>
+                    <div className='divFormR'>
+                        Nombre:
+                        <input 
+                        type='text'
+                        name='name'
+                        value={input.name}
+                        onChange={e => handleChange(e)}
+                        className='inputReg'
+                        placeholder='Nombre'
+                        />
+                    </div>
+                    <div className='divFormR'>
+                        Apellido:
+                        <input 
+                        type='text'
+                        name='lastname'
+                        value={input.lastname}
+                        onChange={e => handleChange(e)}
+                        className='inputReg'
+                        placeholder='Apellido'
+                        />
+                    </div>
+                    <div className='divFormR'>
+                        Email:
+                        <input 
+                        type='text'
+                        name='email'
+                        value={input.email}
+                        onChange={e => handleChange(e)}
+                        className='inputReg'
+                        placeholder='Mail'
+                        />
+                    </div>
+                    <div className='divFormR'>
+                        Contraseña:
+                        <input 
+                        type='password'
+                        name='password'
+                        value={input.password}
+                        onChange={e => handleChange(e)}
+                        className='inputReg'
+                        placeholder='Contraseña'
+                        />
+                    </div>
+                    <div className='divFormR'>
+                        Matrícula:
+                        <input 
+                        type='number'
+                        name='matricula'
+                        value={input.matricula}
+                        onChange={e => handleChange(e)}
+                        className='inputReg'
+                        placeholder='Matrícula'
+                        />
+                    </div>
+                    <button className='buttonR'>Registrarse</button> 
+                </form>
+            </div>
             <div className='divLoeguate'>
                 Ya estás registrado?? <Link to='/' className='logueate'> Logueate</Link>
             </div>

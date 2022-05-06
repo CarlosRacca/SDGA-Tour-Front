@@ -1,55 +1,48 @@
 .divR{
-    background-image: url(../Images/golf11.JPG);
-    padding-bottom: 1000px;
-    background-size: 100% 100%;
-    padding-bottom: 50%;
+    background-image: url('https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_3.0,f_auto,g_center,h_393,q_auto,w_713/v1/pgatour/editorial/2019/06/07/PebbleStoryTopper-1700-KK.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .h1R{
-    color: rgb(250, 243, 227);
+    color: rgba(9, 49, 9, 0.8);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
     text-align: center;
     font-family: Sorts Mill Goudy;
-    padding-top: 10%;
     font-size: 70px;
+    padding-top: 20px;
 }
 
 .formR{
     background-color: rgba(5, 15, 3, 0.5);
     padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .divFormR{
     margin: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -3px;
 }
 
-.nombre{
-    width: 410px; 
-    padding-left: 20px; 
-}
 
-.apellido{
-    width: 410px; 
-    padding-left: 20px; 
-}
-
-.mail{
-    width: 410px; 
-    padding-left: 20px; 
-}
-
-.contraseña{
-    width: 410px; 
-    padding-left: 20px; 
-}
-
-.matricula{
-    padding-left: 20px; 
-    width: 100px;
-    margin:unset;
+.inputReg{
+    width: 400px;
+    border-radius: 7px;
+    border: none;
+    margin-top: 7px;
+    background-color: rgb(231, 228, 228, 0.5);
 }
 
 .buttonR{
@@ -57,15 +50,16 @@
     height: 40px;
     width: 150px;
     text-align: center;
+    border: none;
+    border-radius: 7px;
     color: black;
-    top: 45%;
-    left: 50%;
-    transform: translate(90%, 10%);
+    margin-top: 15px;
 }
 
 .divLoeguate{
     text-align: center;
     color: whitesmoke;
+    font-size: 20px;
 }
 
 .logueate{
