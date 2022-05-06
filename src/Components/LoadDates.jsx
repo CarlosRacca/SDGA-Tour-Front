@@ -77,7 +77,7 @@ export default function LoadDates(){
                         placeholder='ej: 3'
                         value={input.day}
                         onChange={e => handleChange(e)}
-                        className='input'
+                        className='inputDates'
                         />
                     </div>
                     <div>
@@ -88,7 +88,7 @@ export default function LoadDates(){
                         placeholder='ej: 5'
                         value={input.month}
                         onChange={e => handleChange(e)}
-                        className='input'/>
+                        className='inputDates'/>
                     </div>
                     <div>
                         Año:
@@ -98,7 +98,7 @@ export default function LoadDates(){
                         placeholder='ej: 2022'
                         value={input.year}
                         onChange={e => handleChange(e)}
-                        className='input'/>
+                        className='inputDates'/>
                     </div>
                     <div>
                         Fecha excepcional:
@@ -107,7 +107,7 @@ export default function LoadDates(){
                         name='exceptional'
                         value={input.exceptional}
                         onChange={e => handleChange(e)}
-                        className='input'>
+                        className='inputDates'>
                             <option value="False">No</option>
                             <option value="True">Si</option>
                         </select>
