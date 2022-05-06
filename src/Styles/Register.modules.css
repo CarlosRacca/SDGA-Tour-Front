@@ -1,7 +1,6 @@
 .divR{
     background-image: url(../Images/golf11.JPG);
-    padding-bottom: 1000px;
-    background-size: 100% 100%;
+    background-size: cover;
     padding-bottom: 50%;
 }
 
@@ -47,9 +46,7 @@
 }
 
 .matricula{
-    padding-left: 20px; 
-    width: 100px;
-    margin:unset;
+    padding-left: 20px;
 }
 
 .buttonR{

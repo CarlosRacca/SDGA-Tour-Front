@@ -20,9 +20,8 @@
 }
 
 .btnLogin:hover{
-    background-color: #2A6B29;
-    color: rgb(250, 243, 227);
-    border-color: goldenrod;
+    background-color: rgb(235, 193, 88);
+    color: black;
 }
 
 .mail{
