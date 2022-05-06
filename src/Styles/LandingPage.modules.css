@@ -67,12 +67,8 @@
 }
 
 .LinkLanding{
-<<<<<<< HEAD
-    color: rgb(75, 122, 194);
-=======
     color: rgb(120, 122, 98);
     text-shadow: 0.5px 0.5px 0.5px rgb(0, 0, 0);
->>>>>>> 797db0ecfbe6b3acba33c47986b4d9341c921093
 }
 
 .LinkLanding:hover{
