@@ -28,6 +28,9 @@ export default function LoadScoreCard(){
         else if(!input.handicap){
             errors.handicap = 'Debes ingresar el handicap que tuviste el dia en que se jugo esta tarjeta y correspondiente al tee de donde jugaste'
         }
+        else if(!input.date){
+            errors.date = 'Debes ingresar la fecha en la que jugaste esta tarjeta'
+        }
         else if(input.matricula.length < 4){
             errors.matricula = 'Debes ingresar tu numero de matrícula'
         }
@@ -47,6 +50,9 @@ export default function LoadScoreCard(){
         }
         else if(!input.handicap){
             alert('Debes ingresar el handicap que tuviste el dia en que se jugo esta tarjeta y correspondiente al tee de donde jugaste')
+        }
+        else if(!input.date){
+            alert('Debes ingresar la fecha en la que jugaste esta tarjeta')
         }
         else if(input.matricula.length < 4){
             alert('Debes ingresar tu numero de matrícula')
@@ -111,7 +117,7 @@ export default function LoadScoreCard(){
                     <div className='input'>
                         <b>Fecha:</b>
                         <input
-                        type='text'
+                        type='date'
                         name='date'
                         placeholder='ej: 13-03-2022'
                         value={input.date}
@@ -161,6 +167,7 @@ export default function LoadScoreCard(){
                                 <button className='BTNLoad'>Volver</button>
                             </Link>
                         </div>
+                        {console.log(input.date)}
                     </div>
                 </form>
             </div>
