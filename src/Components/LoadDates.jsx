@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { postDate } from "../Actions";
 import { Link } from "react-router-dom";
+import '../Styles/Dates.modules.css'
 
 export default function LoadDates(){
     const dispatch = useDispatch();
@@ -64,56 +65,61 @@ export default function LoadDates(){
     }
 
     return(
-        <div>
-            <form onSubmit={e => onSubmit(e)}>
-                <div>
-                    Día:
-                    <input 
-                    type='text'
-                    name='day'
-                    placeholder='ej: 3'
-                    value={input.day}
-                    onChange={e => handleChange(e)}
-                    className='day'
-                    />
-                </div>
-                <div>
-                    Mes:
-                    <input 
-                    type='text'
-                    name='month'
-                    placeholder='ej: 5'
-                    value={input.month}
-                    onChange={e => handleChange(e)}
-                    className='month'/>
-                </div>
-                <div>
-                    Año:
-                    <input
-                    type='text'
-                    name='year'
-                    placeholder='ej: 2022'
-                    value={input.year}
-                    onChange={e => handleChange(e)}
-                    className='year'/>
-                </div>
-                <div>
-                    Fecha excepcional:
-                    <select
-                    type='select'
-                    name='exceptional'
-                    value={input.exceptional}
-                    onChange={e => handleChange(e)}
-                    className='exceptional'>
-                        <option value="False">No</option>
-                        <option value="True">Si</option>
-                    </select>
-                </div>
-                <button>Presentar</button>
-                <Link to='/home'>
-                    <button>Volver</button>
-                </Link>
-            </form>
+        <div className='divDates'>
+            <h1 className='h1Dates'>Carga de Fechas</h1>
+            <div className='divFormDates'>
+                <form onSubmit={e => onSubmit(e)}>
+                    <div>
+                        Día:
+                        <input 
+                        type='text'
+                        name='day'
+                        placeholder='ej: 3'
+                        value={input.day}
+                        onChange={e => handleChange(e)}
+                        className='input'
+                        />
+                    </div>
+                    <div>
+                        Mes:
+                        <input 
+                        type='text'
+                        name='month'
+                        placeholder='ej: 5'
+                        value={input.month}
+                        onChange={e => handleChange(e)}
+                        className='input'/>
+                    </div>
+                    <div>
+                        Año:
+                        <input
+                        type='text'
+                        name='year'
+                        placeholder='ej: 2022'
+                        value={input.year}
+                        onChange={e => handleChange(e)}
+                        className='input'/>
+                    </div>
+                    <div>
+                        Fecha excepcional:
+                        <select
+                        type='select'
+                        name='exceptional'
+                        value={input.exceptional}
+                        onChange={e => handleChange(e)}
+                        className='input'>
+                            <option value="False">No</option>
+                            <option value="True">Si</option>
+                        </select>
+                    </div>
+                    <div className='divButtons'>
+                        <button className='buttonDate'>Presentar</button>
+                        <Link to='/home'>
+                            <button className='buttonDate'>Volver</button>
+                        </Link>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
