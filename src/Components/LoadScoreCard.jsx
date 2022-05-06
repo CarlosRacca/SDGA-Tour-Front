@@ -154,7 +154,7 @@ export default function LoadScoreCard(){
                     </div>
                     <div className='divButtons'>
                         <div>
-                            <button className='BTNLoad'>Presentar Tarjeta</button>
+                            <button className='BTNLoad'>Presentar</button>
                         </div>
                         <div>
                             <Link to='/home'>

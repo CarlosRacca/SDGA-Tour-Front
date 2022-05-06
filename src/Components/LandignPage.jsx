@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsers } from "../Actions";
 import { Link } from 'react-router-dom';
-import '../Styles/LogIn.modules.css';
 import '../Styles/LandingPage.modules.css';
 
 
@@ -80,31 +79,31 @@ export default function LandingPage(){
     return(
         <div className='divLanding'>
             <h1 className='h1landing'>Bienvenidos al SDGA Tour!</h1>
-                <div>
-                <form onSubmit={e => onSubmit(e)} className='formLogIn'>
-                    <label className='labelMail'>
-                        <input 
-                        type='text'
-                        name='email'
-                        className='mail'
-                        placeholder='Email'
-                        onChange={e => handleChange(e)}
-                        />
-                    </label>
-                    <label>
-                        <input 
-                        type='password'
-                        name='password'
-                        className= 'contraseña'
-                        placeholder='Contraseña'
-                        onChange={e => handleChange(e)}
-                        />
-                    </label>
-                    <button className='btnLogin'>Ingresar</button>
-                </form>
-            </div>
+                <div className='divForm'>
+                    <form onSubmit={e => onSubmit(e)} className='formLogIn'>
+                        <label className='labelMail'>
+                            <input 
+                            type='text'
+                            name='email'
+                            className='inputLogin'
+                            placeholder='Email'
+                            onChange={e => handleChange(e)}
+                            />
+                        </label>
+                        <label>
+                            <input 
+                            type='password'
+                            name='password'
+                            className= 'inputLogin'
+                            placeholder='Contraseña'
+                            onChange={e => handleChange(e)}
+                            />
+                        </label>
+                        <button className='btnLogin'>Ingresar</button>
+                    </form>
+                </div>
             <h5 className='h5Landing'>
-                No tenes cuenta? <Link to='/register' className='LinkLanding'>Registrate GIL</Link>
+                No tenes cuenta? <Link to='/register' className='LinkLanding'>Registrate</Link>
             </h5>
         </div>
     );

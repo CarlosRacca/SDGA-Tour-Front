@@ -5,8 +5,50 @@
     -o-background-size: cover;
     background-size: cover;
     min-height: 100vh;
+    font-family: Sorts Mill Goudy;
 }
 
+.divForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogIn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(5, 15, 3, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btnLogin{
+    margin-top: 10px;
+    margin-bottom: -2px;
+    width: 100px;
+    font-size: 16.5px;
+    border: none;
+    background-color: goldenrod;
+    border-radius: 7px;
+}
+
+.btnLogin:hover{
+    color: white;
+    background-color: rgba(9, 49, 9, 0.8);
+}
+
+.inputLogin{
+    width: 400px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(253, 251, 251, 0.5);
+}
+
+::placeholder{
+    color: white;
+}
 
 .h1landing{
     color: rgb(120, 122, 98);
@@ -14,16 +56,19 @@
     text-align: center;
     padding-top: 140px;
     font-size: 70px;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
 .h5Landing{
     color: rgb(250, 243, 227) ;
     text-align: center;
-    padding-top: 220px;
+    padding-top: 50px;
+    
 }
 
 .LinkLanding{
     color: rgb(120, 122, 98);
+    text-shadow: 0.5px 0.5px 0.5px rgb(0, 0, 0);
 }
 
 .LinkLanding:hover{
