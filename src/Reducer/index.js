@@ -4,7 +4,7 @@ const initialState = {
     users: [],
     scoresUser: [],
     dates: [],
-    specificDates: []
+    specificDates: [],
 };
 
 function rootReducer(state = initialState, action){
@@ -53,6 +53,11 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
             };
+
+        case 'DELETE_SCORE':
+            return{
+                ...state
+            }
 
         default:
             return state;

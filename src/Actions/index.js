@@ -105,3 +105,19 @@ export function postUser(payload){
         return response
     }
 }
+
+export function deleteScoreCard(id_score){
+
+    return async function(dispatch){
+        try {
+            const scoreDelete = await axios.delete(`https://sdga-tour.herokuapp.com/score/${id_score}`)
+
+            return dispatch({
+                type: 'DELETE_SCORE',
+                payload: scoreDelete.data
+            })
+        } catch (error) {
+            console.log('Error')
+        }
+    }
+}

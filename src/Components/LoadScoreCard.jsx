@@ -167,7 +167,6 @@ export default function LoadScoreCard(){
                                 <button className='BTNLoad'>Volver</button>
                             </Link>
                         </div>
-                        {console.log(input.date)}
                     </div>
                 </form>
             </div>
