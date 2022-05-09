@@ -448,6 +448,7 @@ export default function Home(){
                     </tbody>
                     <tfoot></tfoot>
                 </table>
+                <br />
             </div>
         </main>
     );
