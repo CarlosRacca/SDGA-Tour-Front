@@ -54,7 +54,7 @@ export default function LoadScoreCard(){
         else if(!input.date){
             alert('Debes ingresar la fecha en la que jugaste esta tarjeta')
         }
-        else if(input.matricula.length < 4){
+        else if(input.matricula.length < 5 || input.matricula.length > 6){
             alert('Debes ingresar tu numero de matrícula')
         }
         else if(input.categoria.length < 1){

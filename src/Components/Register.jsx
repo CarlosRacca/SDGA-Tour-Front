@@ -52,7 +52,7 @@ export default function Register(){
         else if(input.password.length < 3 ){
             alert('Completa tu contraseña antes de registrarte')
         }
-        else if(input.matricula.length < 5){
+        else if(input.matricula.length < 5 || input.matricula.length > 6){
             alert('Completa tu matricula antes de registrarte')
         }
         
