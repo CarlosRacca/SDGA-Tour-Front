@@ -22,7 +22,13 @@ export default function Home(){
     let dates = useSelector(state => state.dates);
     const scoresUser = useSelector(state => state.scoresUser);
 
-    
+
+    function sortArray(x, y){
+        if (x.total < y.total) {return -1;}
+        if (x.total > y.total) {return 1;}
+
+        return 0;
+    }
 
     function orderByScoresTotal(){
         scoresUser.forEach(el => {
@@ -49,8 +55,11 @@ export default function Home(){
             }
         })
 
-        scoresUser.sort((a,b) => a.total - b.total)
+        scoresUser.sort(sortArray)
+        
     }
+
+    
 
     function numberToMonth(month){
         if(month === '01'){
@@ -141,6 +150,7 @@ export default function Home(){
                             {
                                 filterDatesByMonth()
                             }
+                            {console.log(scoresUser)}
                             {
                             dates ? dates.map(el => {
                                 if(el.exceptional === false){
