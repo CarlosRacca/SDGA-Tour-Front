@@ -1,0 +1,56 @@
+.divU{
+    /* background-color: rgb(22, 51, 22); */
+    background-image: url(https://pga-tour-res.cloudinary.com/image/upload/c_fill,f_auto,g_center,h_405,q_auto,w_720/v1/pgatour/editorial/2016/08/25/fectrophy-1268-getty.jpg);
+    background-size: cover;
+    padding-bottom: 45px;
+}
+
+.users{
+    border: 1px solid black;
+    background-color: rgb(19, 6, 6, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 40%;
+    margin-right: 40%;
+    transform: translate(0%, 0%);
+    size: fit-content;
+    display:flex;
+    flex-direction: column;
+}
+
+.player{
+    color: rgb(2, 1, 1);
+    text-align: center;
+    /* border: 1px solid rgb(7, 8, 7); */
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    margin-top: 10px;
+}
+
+.player:hover{
+    background-color: rgb(230, 215, 59);
+}
+
+a:link{
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.title{
+    text-align: center;
+    padding-top: 2%;
+    font-family: Sorts Mill Goudy;
+    font-size: 4rem;
+}
+
+.btnU{
+    display: flex;
+    transform: translate(30%, -200%);
+    background-color: rgb(8, 8, 6, 0.4);
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+    justify-content: center;
+    padding: 10px;
+}
