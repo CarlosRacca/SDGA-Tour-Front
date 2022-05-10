@@ -150,7 +150,6 @@ export default function Home(){
                             {
                                 filterDatesByMonth()
                             }
-                            {console.log(scoresUser)}
                             {
                             dates ? dates.map(el => {
                                 if(el.exceptional === false){
