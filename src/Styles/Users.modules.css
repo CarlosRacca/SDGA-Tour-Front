@@ -1,7 +1,10 @@
 .divU{
     background-image: url(https://pga-tour-res.cloudinary.com/image/upload/c_fill,f_auto,g_center,h_405,q_auto,w_720/v1/pgatour/editorial/2016/08/25/fectrophy-1268-getty.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    padding-bottom: 40px;
+    min-height: 100vh;
 }
 
 .users{
