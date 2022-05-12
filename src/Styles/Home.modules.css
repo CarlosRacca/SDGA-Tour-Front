@@ -211,4 +211,9 @@ button:hover{
         padding-top: 80px;
 
     }
+
+    .divTable{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
