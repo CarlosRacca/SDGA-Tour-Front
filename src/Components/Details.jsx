@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import '../Styles/Home.modules.css'
+import '../Styles/Details.modules.css'
 import { Link, useParams } from 'react-router-dom';
 import { getScoresUser, deleteScoreCard } from "../Actions/index";
 
@@ -47,7 +47,7 @@ export default function Details(){
     }
 
     return(
-        <div>{userFilter()}
+        <div className='divDetails'>{userFilter()}
         {/* <form onChange={e => handleFiltered(e)}>
             Filtrar por mes:
             <select>
@@ -65,25 +65,29 @@ export default function Details(){
                 <option value="12">Diciembre</option>
             </select>
         </form> */}
-            <div>
+        <h1 className='titleDetails'>Tarjetas de {scores[0] ? scores[0].user : ''}</h1>
+            <div className='divCards'>
                 
                 {scores[0] ? scores[0].scores.map(el => {
                 
                         return(
-                            <label key={el.id} value={el.id}>
-                                <div>Fecha: {el.date}</div>
-                                <div>Total Gross:{el.totalGross}</div>
-                                <div>Handicap:{el.handicap}</div>
-                                <div>Total Neto:{el.totalNeto}</div>
-                                <div>Categoría {el.categoria}</div>
-                                <button onClick={e => handleDelete(e)} value={el.id}>Eliminar</button>
+                            <label className='card' key={el.id} value={el.id}>
+                                <div className='cardContent'><div>Fecha: </div><div>{el.day}/{el.month}/{el.year}</div></div>
+                                <div className='cardContent'><div>Total Gross: </div><div>{el.totalGross}</div></div>
+                                <div className='cardContent'><div>Handicap: </div><div>{el.handicap}</div></div>
+                                <div className='cardContent'><div>Total Neto: </div><div>{el.totalNeto}</div></div>
+                                <div className='cardContent'><div>Categoría: </div><div>{el.categoria}</div></div>
+                                <button className='buttonCards' onClick={e => handleDelete(e)} value={el.id}>Eliminar</button>
                             </label>
                         )
                     }) : <div></div>}
             </div>
-            <div>
+            <div className='divButton'>
                 <Link to='/users'>
-                    <button>Volver</button>
+                    <button className='buttonDetails'>Volver</button>                    
+                </Link>
+                <Link to='/home'>
+                    <button className='buttonDetails'>Volver al inicio</button>                    
                 </Link>
             </div>
         </div>
