@@ -36,6 +36,7 @@
 .btnLogin:hover{
     color: white;
     background-color: rgba(9, 49, 9, 0.8);
+    transition: 0.5s;
 }
 
 .inputLogin{

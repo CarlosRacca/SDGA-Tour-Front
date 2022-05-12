@@ -4,6 +4,24 @@
     border: 1px solid black;
 }
 
+.m1{
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+}
+
+.m2{
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+}
+
+.sum{
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+}
+
 .scores{
     text-align: center;
 }
@@ -33,12 +51,10 @@
 .tableTitle{
     display: flex;
     justify-content: space-around;
-
     margin-top: 30px;
     color: white;
     font-family: Sorts Mill Goudy;
     background-color: rgba(9, 49, 9, 0.8);
-    
 }
 
 .divButton{
@@ -53,6 +69,44 @@ td{
     border: 1px solid black;
 }
 
+.navBar{
+    font-family: Sorts Mill Goudy;
+    display: flex;
+    justify-content: right;
+    background-color: rgba(9, 49, 9, 0.8);
+}
+
+.navComp{
+    color: black;
+    width: 120px;
+    text-align: center;
+    margin: 10px;
+    margin-right: 70px;
+    margin-left: -30px;
+    padding: 7px;
+    background-color: rgb(238, 250, 238, 0.9);
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.divNav{
+    display: flex;
+}
+
+.icon{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 10px;
+    display: none;
+}
+
+.navComp:hover{
+    background-color: goldenrod;
+    color: black;
+    transition: 0.5s;
+}
+
 .button{
     border: none;
     background-color: goldenrod;
@@ -65,6 +119,7 @@ td{
 button:hover{
     color: white;
     background-color: rgba(9, 49, 9, 0.8);
+    transition: 0.5s;
 }
 
 .h1H{
@@ -73,6 +128,7 @@ button:hover{
     font-family: Sorts Mill Goudy;
     padding-top: 20px;
     font-size: 70px;
+
 }
 
 .selectMonth{
@@ -88,6 +144,12 @@ button:hover{
     font-family: Sorts Mill Goudy;
 }
 
+.navTitle{
+    color: white;
+    margin-right: 500px;
+    margin-top: 15px;
+}
+
 .mainH{
     background-image: url(../Images/augusta1.jpg);
     -webkit-background-size: cover;
@@ -95,4 +157,58 @@ button:hover{
     -o-background-size: cover;
     background-size: cover;
     min-height: 100vh;
+}
+
+@media (max-width: 1068px){
+    .navComp{
+        margin: 10px 0px;
+        width: 90%;
+        height: 10%;
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 60px;
+    }
+
+    .divNav{
+        background-color: rgba(9, 49, 9, 0.8);
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 50px;
+        left:100%;
+    }
+
+    .navTitle{
+        margin-right: 300px;
+        margin-top: 12px;
+    }
+
+    .icon{
+        display: block;
+    }
+    .normalDate{
+        display: none;
+    }
+    
+    .h1H{
+        font-size: 50px;
+        padding-top: 60px;
+    }
+
+    .navBar{
+        font-family: Sorts Mill Goudy;
+        background-color: rgba(9, 49, 9, 0.8);
+        width: 100%;
+        position: fixed;
+    
+    }
+    
+    .divNavVisible{
+        left: 0;
+        padding-top: 80px;
+
+    }
 }

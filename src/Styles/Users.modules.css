@@ -33,6 +33,7 @@
 
 .player:hover{
     background-color: rgb(230, 215, 59);
+    transition: 0.5s;
 }
 
 a:link{

@@ -3,6 +3,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import '../Styles/Home.modules.css'
 import { Link } from 'react-router-dom';
 import { getScores, getUsers, getScoresUser, getDates } from "../Actions/index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faCoffee } from "@fortawesome/free-solid-svg-icons";
+
 
 
 export default function Home(){
@@ -59,7 +62,20 @@ export default function Home(){
         
     }
 
-    
+    function handleCick(e){
+        e.preventDefault();
+        alert('Proximamente!!')
+    }
+
+    const icon = document.querySelector('.icon')
+    const divNav = document.querySelector('.divNav')
+
+
+    function handleToggle(e){
+        icon.addEventListener('click', ()=>{
+            divNav.classList.toggle('divNavVisible')
+        })
+    }
 
     function numberToMonth(month){
         if(month === '01'){
@@ -112,12 +128,25 @@ export default function Home(){
 
     return(
         <main className='mainH'>
+            <header>
+                <nav className='navBar'>
+                    <h3 className='navTitle'>SDGA Tour</h3>
+                    <a href="#"> <FontAwesomeIcon onClick={e => handleToggle(e)} className='icon' icon={faBars} /></a>
+                    
+                    <div className='divNav' >
+                        <a className='navComp' href="/loadscorecard">Cargar Tarjeta</a>
+                        <a className='navComp' href="/users">Usuarios</a>
+                        <a className='navComp' href="rules">Reglas</a>
+                        <a className='navComp' href='#' onClick={e => handleCick(e)} >RodaTips</a>
+                    </div>
+                </nav>
+            </header>
             <h1 className='h1H'>LEADERBOARD</h1>
             
             <div className='divButton'>
-            <Link to='/loadscorecard'>
+            {/* <Link to='/loadscorecard'>
                     <button className='button'>Cargar tarjeta</button>
-                </Link>
+                </Link> */}
             <h5 className='h5H'>
                 PLANILLA DE SCORES NETO: 
                 <select className='selectMonth' onChange={e => handleSelectMonth(e)}>
@@ -137,9 +166,9 @@ export default function Home(){
                 </select> {year}
             </h5>
                 
-                <Link to='/rules'>
+                {/* <Link to='/rules'>
                     <button className='button'>Reglas del torneo</button>
-                </Link>
+                </Link> */}
             </div>
             <div className='divTable'>
                 <h5 className='tableTitle'>Categoría A</h5>
@@ -169,10 +198,10 @@ export default function Home(){
                             }) :
                             <div>Cargando</div>
                         }
-                            <th className='normalDate'>M1</th>
-                            <th className='normalDate'>M2</th>
+                            <th className='m1'>M1</th>
+                            <th className='m2'>M2</th>
                             <th className='worst'>P</th>
-                            <th className='normalDate'>SUM</th>
+                            <th className='sum'>SUM</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -326,10 +355,10 @@ export default function Home(){
                             }) :
                             <div>Cargando</div>
                         }
-                            <th className='normalDate'>M1</th>
-                            <th className='normalDate'>M2</th>
+                            <th className='m1'>M1</th>
+                            <th className='m2'>M2</th>
                             <th className='worst'>P</th>
-                            <th className='normalDate'>SUM</th>
+                            <th className='sum'>SUM</th>
                         </tr>
                     </thead>
                     <tbody>
