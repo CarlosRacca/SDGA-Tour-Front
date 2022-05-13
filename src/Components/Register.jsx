@@ -32,7 +32,7 @@ export default function Register(){
         else if(!input.password){
             errors.password = 'Debes ingresar una contraseña'
         }
-        else if(input.matricula < 1){
+        else if(input.matricula.length < 4){
             errors.matricula = 'Debes ingresar tu numero de matrícula'
         }
         
@@ -52,7 +52,7 @@ export default function Register(){
         else if(input.password.length < 3 ){
             alert('Completa tu contraseña antes de registrarte')
         }
-        else if(input.matricula.length < 5 || input.matricula.length > 6){
+        else if(input.matricula < 100000 || input.matricula > 200000){
             alert('Completa tu matricula antes de registrarte')
         }
         
