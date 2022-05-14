@@ -192,6 +192,10 @@ button:hover{
     .normalDate{
         display: none;
     }
+
+    .exceptionalDate{
+        display: none;
+    }
     
     .h1H{
         font-size: 50px;
